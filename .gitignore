@@ -39,6 +39,9 @@ testem.log
 /typings
 __screenshots__/
 
+# Local dev logs
+/logs
+
 # System files
 .DS_Store
 Thumbs.db
