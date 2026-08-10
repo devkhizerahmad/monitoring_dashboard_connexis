@@ -1,0 +1,95 @@
+/* gen-status selectors — VERBATIM from SOURCE_HTML */
+.gen-status {
+  background: #f4f4f4;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+.panel-head {
+  padding: 12px 14px;
+  background: #ececec;
+  border-bottom: 1px solid #e0e0e0;
+}
+.panel-head h2 {
+  font-size: 15px;
+  font-weight: 800;
+  color: #4a4a4a;
+}
+.gen-body {
+  padding: 12px 14px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.on-pill {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: #10131a;
+  color: #35e01e;
+  border-radius: 20px;
+  padding: 3px 10px 3px 8px;
+  font-size: 10.5px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.on-pill svg {
+  width: 9px;
+  height: 11px;
+  fill: #35e01e;
+}
+.gen-img {
+  width: 150px;
+  height: 104px;
+  object-fit: contain;
+  display: block;
+  margin: 26px auto 20px;
+}
+
+/* .select rules live in select.component.scss */
+
+.gen-stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+.gen-stat.tinted {
+  background: #e9e9ec;
+}
+.gs-icon {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gen-stat small {
+  display: block;
+  font-size: 9.5px;
+  color: #777;
+  font-weight: 600;
+}
+.gen-stat small.lab {
+  font-size: 10px;
+  color: #444;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+.gen-stat b {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #1c1c1c;
+  margin-top: 2px;
+}
+.gen-stat b.blue {
+  color: var(--indigo);
+}

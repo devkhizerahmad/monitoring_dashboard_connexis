@@ -1,0 +1,31 @@
+// ============================================================
+// NNEXIS SCSS helpers (mirror the effect of SOURCE_HTML rules)
+// ============================================================
+
+// soft raised surface shadow used on panels
+@mixin card-shadow($alpha) {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, $alpha);
+}
+
+// center a flex item (used by pills, circles, chart holes)
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// icon images: non-selectable + multiply blend (from .icon-img)
+@mixin icon-img-blend {
+  img {
+    user-select: none;
+    mix-blend-mode: multiply;
+  }
+}
+
+// hover card lift (translateY -2px on hover, .15s)
+@mixin hover-lift {
+  transition: transform 0.15s;
+  &:hover {
+    transform: translateY(-2px);
+  }
+}

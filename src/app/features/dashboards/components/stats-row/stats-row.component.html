@@ -1,0 +1,21 @@
+<section class="stats-row">
+  <app-card variant="stat" [extra]="card.cardClass" *ngFor="let card of statCards()">
+    <div>
+      <span class="s-title">{{ card.title }}</span>
+      <span class="s-value"
+            [class.green]="card.valueClass === 'green'"
+            [class.red]="card.valueClass === 'red'">{{ card.value }}</span>
+    </div>
+    <span class="s-icon">
+      <ng-container *ngIf="card.icon.type === 'icon'">
+        <app-icon [name]="card.icon.name"/>
+      </ng-container>
+      <ng-container *ngIf="card.icon.type === 'img'">
+        <img class="icon-img" [src]="card.icon.url" alt="">
+      </ng-container>
+      <ng-container *ngIf="card.icon.type === 'pct'">
+        <span class="pct-circle" [ngStyle]="{ '--pct': card.icon.percent }"><b>{{ card.icon.text }}</b></span>
+      </ng-container>
+    </span>
+  </app-card>
+</section>

@@ -1,0 +1,17 @@
+<div class="alerts-panel">
+  <div class="alerts-head">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 10a8 8 0 0 1 16 0M7.5 10a4.5 4.5 0 0 1 9 0M12 10v9"/><circle cx="12" cy="10" r="1.4"/></svg>
+    <h3>{{ alertsTitle }}</h3>
+  </div>
+  <div class="alert-item"
+       *ngFor="let alert of alertsService.alerts()"
+       [class.hidden]="alert.hidden && !alertsService.expanded()">
+    <span class="a-dot" [style.background]="alert.dot"></span>
+    <div>
+      <div class="a-title">{{ alert.title }}</div>
+      <div class="a-sub">{{ alert.sub }}</div>
+    </div>
+    <span class="a-time">{{ alert.time }}</span>
+  </div>
+  <button class="view-more" (click)="alertsService.toggleMore()">{{ alertsService.viewMoreLabel() }}</button>
+</div>

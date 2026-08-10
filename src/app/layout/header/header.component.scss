@@ -1,0 +1,75 @@
+/* header / topbar selectors — VERBATIM from SOURCE_HTML */
+.topbar {
+  background: #fff;
+  border-radius: 4px;
+  height: 38px;
+  flex: 0 0 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+.hamburger {
+  width: 34px;
+  height: 26px;
+  border: 1px solid #e2e2e2;
+  border-radius: 4px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.hamburger:hover {
+  background: #f0f0f0;
+}
+.hamburger span {
+  width: 14px;
+  height: 2px;
+  background: #333;
+  display: block;
+}
+.bank-select {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  height: 30px;
+  padding: 0 8px;
+  background: #fff;
+  cursor: pointer;
+  min-width: 150px;
+  transition: box-shadow 0.15s;
+}
+.bank-select:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+.bank-select .b-logo {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+}
+.bank-select .b-txt b {
+  display: block;
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #6a1b9a;
+  line-height: 1.1;
+}
+.bank-select .b-txt i {
+  display: block;
+  font-style: normal;
+  font-size: 6px;
+  color: #b71c1c;
+  letter-spacing: 0.2px;
+}
+.bank-select .chev {
+  margin-left: auto;
+  width: 9px;
+  height: 9px;
+  stroke: #777;
+}

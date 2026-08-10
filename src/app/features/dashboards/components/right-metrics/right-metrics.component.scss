@@ -1,0 +1,130 @@
+/* right-col selectors — VERBATIM from SOURCE_HTML */
+.right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.m-card {
+  background: #fff;
+  border-radius: 6px;
+  padding: 8px 9px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 56px;
+  transition: transform 0.15s;
+}
+.m-card:hover {
+  transform: translateY(-2px);
+}
+.m-ic {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.m-ic.dark {
+  background: #37474f;
+}
+.m-ic.plain {
+  background: transparent;
+  width: 26px;
+}
+.m-card small {
+  display: block;
+  font-size: 8.8px;
+  font-weight: 700;
+  color: #667;
+}
+.m-card small.t {
+  color: #334;
+  font-weight: 800;
+}
+.m-card b {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #1a3aa8;
+  margin-top: 2px;
+}
+.m-card b.red {
+  color: var(--red);
+}
+.m-card .sub2 {
+  font-size: 7.5px;
+  color: #999;
+}
+.lahore-tag {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  right: 0;
+  font-size: 5.5px;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.3px;
+  font-weight: 700;
+}
+.highlights-h {
+  font-size: 12px;
+  font-weight: 800;
+  color: #e8e8e8;
+  margin-top: 2px;
+}
+.h-card {
+  background: #fff;
+  border-radius: 6px;
+  padding: 8px 9px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.h-card small {
+  font-size: 9px;
+  font-weight: 800;
+  color: #555;
+  display: block;
+}
+.h-card .date {
+  font-size: 7.5px;
+  color: #999;
+  margin: 2px 0;
+}
+.h-card b {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--indigo);
+}
+.usage-bar {
+  background: #fff;
+  border-radius: 6px;
+  padding: 9px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.usage-bar svg {
+  width: 56px;
+  height: 30px;
+  flex: 0 0 56px;
+}
+.usage-bar .u-label {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #8a8a8a;
+}
+.usage-bar .u-value {
+  margin-left: auto;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--indigo);
+}

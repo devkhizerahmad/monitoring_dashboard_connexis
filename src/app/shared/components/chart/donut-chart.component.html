@@ -1,0 +1,11 @@
+<div class="chart-flex">
+  <div class="donut" [class.d1]="variant() === 'd1'" [class.d2]="variant() === 'd2'">
+    <span class="pct" [ngClass]="p.cls" *ngFor="let p of percentLabels()">{{ p.text }}</span>
+    <div class="hole"><small *ngFor="let line of centerLines()">{{ line }}</small></div>
+  </div>
+  <ul class="legend">
+    <li *ngFor="let segment of segments()">
+      <span class="dot" [style.background]="segment.color"></span>{{ segment.label }}
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,36 @@
+@use './app/styles/tokens';
+@use './app/styles/typography';
+@use './app/styles/mixins';
+
+/* global reset + shell — VERBATIM from SOURCE_HTML */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: 'Inter', system-ui, 'Segoe UI', Arial, sans-serif;
+  background: var(--side);
+  color: var(--txt);
+  min-width: 1264px;
+  overflow-x: auto;
+}
+img {
+  user-select: none;
+}
+.icon-img {
+  mix-blend-mode: multiply;
+}
+.app {
+  display: flex;
+  min-height: 100vh;
+  min-width: 1264px;
+}
+
+.stub-host {
+  display: contents;
+}

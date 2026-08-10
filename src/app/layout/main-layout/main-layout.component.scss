@@ -1,0 +1,10 @@
+/* .main selector — VERBATIM from SOURCE_HTML */
+.main {
+  flex: 1;
+  background: var(--dark);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}

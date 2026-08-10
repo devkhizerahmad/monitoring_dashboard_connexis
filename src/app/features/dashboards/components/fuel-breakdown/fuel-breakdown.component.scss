@@ -1,0 +1,100 @@
+/* fuel-center selectors — VERBATIM from SOURCE_HTML */
+.fuel-center {
+  background: #f7f7f7;
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  min-width: 0;
+}
+.center-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.center-head h2 {
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: var(--sky);
+}
+.center-head svg {
+  width: 13px;
+  height: 16px;
+}
+.fb-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* .fb-card font rules live in _typography.scss */
+.fb-card {
+  background: #e8e8e8;
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 76px;
+  transition: transform 0.15s;
+}
+.fb-card:hover {
+  transform: translateY(-2px);
+}
+.fb-card img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+.fb-card.tank-card {
+  background: linear-gradient(180deg, #efefef, #dcdcdc);
+}
+.fb-row {
+  display: flex;
+  gap: 10px;
+}
+.filled-card {
+  flex: 0 0 44%;
+  background: #f1f1f1;
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.filled-card img {
+  width: 46px;
+  height: 44px;
+  object-fit: contain;
+}
+.consumed-card {
+  flex: 1;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #0b2740 0%, #0d47a1 55%, #1273c4 100%);
+  color: #fff;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+/* consumed-card text rules live in _typography.scss */
+
+.consumed-card img {
+  position: absolute;
+  right: 44px;
+  top: 6px;
+  width: 44px;
+  height: 40px;
+  object-fit: contain;
+}
+.consumed-card svg.bars {
+  position: absolute;
+  right: 8px;
+  bottom: 6px;
+}

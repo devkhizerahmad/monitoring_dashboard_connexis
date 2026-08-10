@@ -1,0 +1,28 @@
+<aside class="sidebar">
+  <div class="logo-row">
+    <img class="logo-img" src="/assets/connexis_logo-light-removebg-preview.png" alt="Connexis">
+  </div>
+
+  <nav class="nav">
+    <a class="nav-item"
+       *ngFor="let item of navItems()"
+       [routerLink]="item.route"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="linkOptions(item.route)">
+      <app-icon [name]="item.icon"/>{{ item.label }}
+    </a>
+  </nav>
+
+  <div class="side-bottom">
+    <h3>{{ sidebar.lines[0] }}<br>{{ sidebar.lines[1] }}</h3>
+    <div class="stores">
+      <a class="store-badge" href="#"
+         *ngFor="let badge of storeBadges">
+        <app-icon [name]="badge.icon"/>
+        <span><small>{{ badge.line1 }}</small><b>{{ badge.line2 }}</b></span>
+      </a>
+    </div>
+    <div class="scan-label">{{ sidebar.scanLabel }}</div>
+    <app-qr-code/>
+  </div>
+</aside>

@@ -1,0 +1,22 @@
+<div class="perf-panel">
+  <div class="perf-head">
+    <h3>{{ perfTitle }}</h3>
+    <span class="dots">{{ perfDots }}</span>
+  </div>
+  <div class="charts-row">
+    <div class="chart-block">
+      <app-donut-chart [variant]="perfLoad().variant"
+                       [segments]="perfLoad().segments"
+                       [centerLines]="perfLoad().centerLines"
+                       [percentLabels]="perfLoad().percentLabels"/>
+      <div class="chart-value"><b>{{ perfLoad().value }}</b><small>{{ perfLoad().valueSmall }}</small></div>
+    </div>
+    <div class="chart-block">
+      <app-donut-chart [variant]="perfFuel().variant"
+                       [segments]="perfFuel().segments"
+                       [centerLines]="perfFuel().centerLines"
+                       [percentLabels]="perfFuel().percentLabels"/>
+      <div class="chart-value"><b>{{ perfFuel().value }}</b><small>{{ perfFuel().valueSmall }}</small></div>
+    </div>
+  </div>
+</div>

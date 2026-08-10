@@ -1,0 +1,4 @@
+<div class="badge" [ngClass]="badge().variant">
+  <span class="b-circle">{{ badge().count }}</span>
+  <small><ng-container *ngFor="let line of lines(); let last = last">{{ line }}<br *ngIf="!last" /></ng-container></small>
+</div>

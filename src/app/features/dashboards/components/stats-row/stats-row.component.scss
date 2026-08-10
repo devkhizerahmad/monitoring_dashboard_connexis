@@ -1,0 +1,82 @@
+/* stats-row selectors — VERBATIM from SOURCE_HTML */
+.stats-row {
+  display: flex;
+  gap: 13px;
+}
+
+/* .stat-card font rules live in _typography.scss */
+.stat-card {
+  background: #fff;
+  border-radius: 4px;
+  min-height: 62px;
+  padding: 9px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s;
+}
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+.stat-card .s-icon {
+  height: 36px;
+  display: flex;
+  align-items: center;
+}
+.stat-card .s-icon img {
+  height: 36px;
+  max-width: 52px;
+  object-fit: contain;
+}
+.c1 {
+  flex: 0 0 220px;
+}
+.c2 {
+  flex: 0 0 122px;
+}
+.c3 {
+  flex: 0 0 118px;
+}
+.c4 {
+  flex: 0 0 152px;
+}
+.c5 {
+  flex: 0 0 186px;
+}
+.c6 {
+  flex: 1;
+}
+.pct-circle {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--orange) 0 calc(var(--pct, 0) * 1%),
+    #ffe3b8 calc(var(--pct, 0) * 1%) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pct-circle::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: #fff;
+}
+.pct-circle b {
+  position: relative;
+  z-index: 1;
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--orange);
+  line-height: 1;
+}
+.gen-ic {
+  width: 44px;
+  height: 30px;
+}

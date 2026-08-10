@@ -1,0 +1,3 @@
+<select class="select" [class.big]="big()" [value]="innerValue" (change)="onSelect($any($event.target).value)">
+  <option *ngFor="let option of options()">{{ option }}</option>
+</select>

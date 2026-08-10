@@ -1,0 +1,8 @@
+/* content-grid selector — VERBATIM from SOURCE_HTML */
+.content-grid {
+  display: grid;
+  grid-template-columns: 252px minmax(0, 1fr) 302px;
+  gap: 13px;
+  align-items: stretch;
+  flex: 1;
+}

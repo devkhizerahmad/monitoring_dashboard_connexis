@@ -1,0 +1,282 @@
+/**
+ * ALL literals lifted verbatim from SOURCE_HTML (dashboard.html).
+ * Typed by core/models. No component ever hard-codes a display string.
+ */
+import type { NavItem, StoreBadge } from '../../../core/models/nav-item.model';
+import type { StatCard, GenStat } from '../../../core/models/generator.model';
+import type { TankMetric, FuelFlow, DonutSegment, DonutPercent } from '../../../core/models/fuel.model';
+import type {
+  RunningMetric,
+  HighlightCard,
+  UsageSummary,
+  PerformanceChart,
+} from '../../../core/models/metric.model';
+import type { AlertItem, AlertBadge } from '../../../core/models/alert.model';
+
+/* ------------------------------------------------------------------ */
+/* image / asset URLs                                                  */
+/* ------------------------------------------------------------------ */
+export const IMAGES = {
+  LADY: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/1f50a786a-df88-4d66-9b7e-a12b184fb498.png',
+  GEN_BODY: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/1838dddd4-e39d-4d31-a63d-151af2e7e320.png',
+  FILLING: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/1dbd6b561-7b4d-421c-98ea-80b32b958df1.png',
+  DEPLETION: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/14d6ebddd-ef27-4b6d-aaa6-63acdc78489f.png',
+  TANK_OPENING: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/166707d12-38f2-40fe-9ab7-235512370b28.png',
+  TANK_CLOSING: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/1f32be30b-d95a-465c-9a5c-b383e6a885a5.png',
+  TANK_SIZE: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/1e34f9b33-497b-40bc-b45f-a370a605bacd.png',
+  FUEL_DEPLETION: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/1c86ae279-91d1-4482-a9d0-a52cc01680f5.png',
+  FUEL_FILLED: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/110fe4146-e165-42de-96cf-fe2576127df9.png',
+};
+
+/* ------------------------------------------------------------------ */
+/* sidebar                                                             */
+/* ------------------------------------------------------------------ */
+export const NAV_ITEMS: NavItem[] = [
+  { icon: 'home', label: 'DASHBOARD', route: '/' },
+  { icon: 'report', label: 'REPORT', route: '/reports' },
+  { icon: 'bell', label: 'ALERMS', route: '/alarms' },
+  { icon: 'monitor', label: 'MONITORING', route: '/monitoring' },
+  { icon: 'bolt', label: 'OUTAGE', route: '/outage' },
+  { icon: 'help', label: 'HELP', route: '/help' },
+];
+
+export const SIDEBAR = {
+  logo: { pre: 'NNE', x: 'X', post: 'IS' },
+  lines: ['Download app,', 'stay connected'],
+  scanLabel: 'SCAN ME',
+} as const;
+
+export const STORE_BADGES: StoreBadge[] = [
+  { icon: 'gplay', line1: 'GET IT ON', line2: 'Google Play' },
+  { icon: 'apple', line1: 'Download on the', line2: 'App Store' },
+];
+
+/* ------------------------------------------------------------------ */
+/* topbar                                                              */
+/* ------------------------------------------------------------------ */
+export const BANK = {
+  name: 'Meezan Bank',
+  tagline: 'The Premier Islamic Bank',
+} as const;
+
+/* ------------------------------------------------------------------ */
+/* panel headings                                                      */
+/* ------------------------------------------------------------------ */
+export const STATUS_PANEL_TITLE = 'Generator Status';
+export const ON_PILL_LABEL = 'ON';
+export const FUEL_CENTER_TITLE = 'FUEL BREAKDOWN PER- LITRE';
+
+export const PERF_TITLE = 'Generator Performance Over 1 Week';
+export const PERF_DOTS = '•••';
+
+export const ALERTS_TITLE = 'LATEST ALERTS';
+
+/* ------------------------------------------------------------------ */
+/* stats row                                                           */
+/* ------------------------------------------------------------------ */
+export const STAT_CARDS: StatCard[] = [
+  {
+    cardClass: 'c1',
+    title: 'TOTAL GENERATORS',
+    value: '13',
+    icon: { type: 'icon', name: 'gen-dark' },
+  },
+  {
+    cardClass: 'c2',
+    title: 'ON',
+    value: '10',
+    icon: { type: 'icon', name: 'gen-green' },
+  },
+  {
+    cardClass: 'c3',
+    title: 'OFF',
+    value: '3',
+    icon: { type: 'icon', name: 'gen-red' },
+  },
+  {
+    cardClass: 'c4',
+    title: 'TOTAL FILLING',
+    value: '100Ltr',
+    valueClass: 'green',
+    icon: { type: 'img', url: IMAGES.FILLING },
+  },
+  {
+    cardClass: 'c5',
+    title: 'TOTAL FUEL USED',
+    value: '84Ltr',
+    valueClass: 'red',
+    icon: { type: 'pct', text: '84%', percent: 84 },
+  },
+  {
+    cardClass: 'c6',
+    title: 'TOTAL FUEL DEPLETION',
+    value: '0Ltr',
+    valueClass: 'red',
+    icon: { type: 'img', url: IMAGES.DEPLETION },
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/* generator status                                                    */
+/* ------------------------------------------------------------------ */
+export const GEN_GROUPS: string[] = ['Meezan Group', 'Habib Group'];
+export const GEN_ZONES: string[] = ['Zone C', 'Zone A', 'Zone B'];
+export const GEN_UNITS: string[] = ['GEN-7420', 'GEN-1043'];
+
+export const GEN_STATS: GenStat[] = [
+  { icon: 'power', label: 'TOTAL POWER', sub: 'Last Day', value: '120 kVA' },
+  {
+    icon: 'gauge',
+    label: 'Last Usage Hours',
+    sub: 'Since Last Day',
+    value: '4h 30m 3s',
+    blue: true,
+    tinted: true,
+  },
+  {
+    icon: 'thermo',
+    label: 'Last Gen Start',
+    sub: 'Since Last Day',
+    value: '2:30pm',
+    blue: true,
+    tinted: true,
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/* fuel breakdown                                                      */
+/* ------------------------------------------------------------------ */
+export const TANK_METRICS: TankMetric[] = [
+  {
+    title: 'TANK OPENING',
+    sub: 'Updated 5 min ago',
+    value: '69Ltr',
+    imageUrl: IMAGES.TANK_OPENING,
+  },
+  {
+    title: 'TANK CLOSING',
+    sub: 'Updated 5 min ago',
+    value: '91Ltr',
+    imageUrl: IMAGES.TANK_CLOSING,
+  },
+  {
+    title: 'Tank Size',
+    value: '176 Ltr',
+    tank: true,
+    valueMarginTop: '8px',
+    imageUrl: IMAGES.TANK_SIZE,
+  },
+  {
+    title: 'FUEL DEPLETION',
+    sub: 'Last Day',
+    value: '0Ltr 0%',
+    red: true,
+    imageUrl: IMAGES.FUEL_DEPLETION,
+  },
+];
+
+export const FUEL_FLOW_FILLED: FuelFlow = {
+  title: 'FUEL FILLED',
+  sub: 'Last Day',
+  value: '0Ltr 0%',
+  imageUrl: IMAGES.FUEL_FILLED,
+};
+
+export const FUEL_FLOW_CONSUMED: FuelFlow = {
+  title: 'FUEL CONSUMED',
+  sub: 'Since Last Day',
+  value: '10.23Ltr',
+  imageUrl: IMAGES.FUEL_DEPLETION,
+};
+
+/* ------------------------------------------------------------------ */
+/* performance panel — donut charts                                    */
+/* ------------------------------------------------------------------ */
+export const PERF_LOAD: PerformanceChart = {
+  variant: 'd1',
+  segments: [
+    { color: '#7c3aed', label: 'Capacity' },
+    { color: '#2196f3', label: 'Load' },
+  ],
+  centerLines: ['Load', 'vs', 'Capacity'],
+  percentLabels: [
+    { text: '30%', cls: 'p30' },
+    { text: '70%', cls: 'p70' },
+  ],
+  value: '10h 05m 15s',
+  valueSmall: 'Gen 011, 2000KVA',
+};
+
+export const PERF_FUEL: PerformanceChart = {
+  variant: 'd2',
+  segments: [
+    { color: '#2196f3', label: '177 gal' },
+    { color: '#424242', label: '161.37 gal' },
+    { color: '#7c3aed', label: '210.50 gal' },
+    { color: '#fdd835', label: '322.75 gal' },
+  ],
+  centerLines: ['Fuel', 'Usage'],
+  percentLabels: [],
+  value: '771.62 gal',
+  valueSmall: 'Gen 011  2000KVA',
+};
+
+/* ------------------------------------------------------------------ */
+/* right column                                                        */
+/* ------------------------------------------------------------------ */
+export const RUNNING_METRICS: RunningMetric[] = [
+  { icon: 'hourglass', small: 'Total Running Hours', value: '359 H' },
+  {
+    icon: 'battery',
+    iconClass: 'dark',
+    small: 'Ambient Temperature',
+    value: '- - - - -',
+    valueStyle: 'color:#333',
+  },
+  {
+    icon: 'bolt-fill',
+    iconStyle: 'background:#111;border-radius:50%',
+    small: 'Average Load Factor',
+    value: '0.342',
+    valueStyle: 'color:#222',
+  },
+  {
+    icon: 'cloud',
+    iconClass: 'dark',
+    iconStyle: 'position:relative;flex-direction:column',
+    tag: 'LAHORE',
+    small: 'Weather',
+    sub2: 'Updated 5 min ago',
+    value: '23°C',
+    valueClass: 'red',
+  },
+];
+
+export const HIGHLIGHTS_HEAD = 'October highlights';
+
+export const HIGHLIGHT_CARDS: HighlightCard[] = [
+  { icon: 'power', title: 'Maximal Usage', date: '2024-09-02 10:30:45', value: '160 kVA' },
+  { icon: 'transformer', title: 'Minimal Usage', date: '2024-09-02 10:30:45', value: '40 kVA' },
+];
+
+export const USAGE_SUMMARY: UsageSummary = { label: 'Total Usage', value: '280 kVA' };
+
+/* ------------------------------------------------------------------ */
+/* latest alerts + badges                                              */
+/* ------------------------------------------------------------------ */
+export const ALERT_ITEMS: AlertItem[] = [
+  { dot: '#4caf50', title: 'Ignition On', sub: 'Gen 07  200KVA', time: 'Yesterday, 13:20:44', hidden: false },
+  { dot: '#f0a938', title: 'Filling', sub: 'Gen 018, 20KVA', time: 'Today, 11:00:32', hidden: false },
+  { dot: '#e53935', title: 'Pouring', sub: 'Gen 21  200KVA', time: 'Yesterday, 13:20:44', hidden: false },
+  { dot: '#e53935', title: 'Fuel Sensor Disconnect', sub: 'Gen 011  40KVA', time: 'Today, 11:00:32', hidden: false },
+  { dot: '#e53935', title: 'Low Power Voltage', sub: 'Gen 125  150KVA', time: 'Yesterday, 13:20:44', hidden: false },
+  { dot: '#f0a938', title: 'Tank Opening', sub: 'Gen 04  80KVA', time: 'Today, 09:12:05', hidden: true },
+  { dot: '#4caf50', title: 'Gen Start', sub: 'Gen 09  100KVA', time: 'Today, 08:41:19', hidden: true },
+];
+
+export const ALERT_BADGES: AlertBadge[] = [
+  { variant: 'critical', count: 6, label: 'Critical', lines: ['Critical'] },
+  { variant: 'minor', count: 4, label: 'Minor', lines: ['Minor'] },
+  { variant: 'normal', count: 7, label: 'Normal', lines: ['Normal'] },
+  { variant: 'upcoming', count: 3, label: 'Upcoming Maintenance', lines: ['Upcoming', 'Maintenance'] },
+];

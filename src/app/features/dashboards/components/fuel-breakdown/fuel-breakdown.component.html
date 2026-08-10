@@ -1,0 +1,41 @@
+<section class="fuel-center">
+  <header class="center-head">
+    <h2>{{ centerTitle }}</h2>
+    <svg viewBox="0 0 14 18"><path d="M7 0C7 0 0 8.5 0 12.5A7 7 0 0 0 14 12.5C14 8.5 7 0 7 0z" fill="#f6b93b"/></svg>
+  </header>
+
+  <div class="fb-grid">
+    <app-card variant="fb" [extra]="tank.tank ? 'tank-card' : ''" *ngFor="let tank of tankMetrics()">
+      <div>
+        <div class="f-title">{{ tank.title }}</div>
+        <div class="f-sub" *ngIf="tank.sub">{{ tank.sub }}</div>
+        <div class="f-value"
+             [style.margin-top]="tank.valueMarginTop"
+             [class.red]="tank.red">{{ tank.value }}</div>
+      </div>
+      <img class="icon-img" [src]="tank.imageUrl" alt="">
+    </app-card>
+  </div>
+
+  <div class="fb-row">
+    <div class="filled-card">
+      <div>
+        <div class="f-title" style="font-size:10px;font-weight:800;color:#555">{{ fuelFlow().title }}</div>
+        <div class="f-sub" style="font-size:9px;color:#888;margin:3px 0 5px">{{ fuelFlow().sub }}</div>
+        <div class="f-value">{{ fuelFlow().value }}</div>
+      </div>
+      <img class="icon-img" [src]="fuelFlow().imageUrl" alt="">
+    </div>
+    <div class="consumed-card">
+      <div>
+        <div class="c-title">{{ fuelConsumed().title }}</div>
+        <div class="c-sub">{{ fuelConsumed().sub }}</div>
+        <div class="c-value">{{ fuelConsumed().value }}</div>
+      </div>
+      <img [src]="fuelConsumed().imageUrl" alt="">
+      <svg class="bars" width="64" height="30" viewBox="0 0 64 30"><rect x="2" y="16" width="6" height="12" fill="#fdd835"/><rect x="12" y="10" width="6" height="18" fill="#29b6f6"/><rect x="22" y="14" width="6" height="14" fill="#fdd835"/><rect x="32" y="6" width="6" height="22" fill="#29b6f6"/><rect x="42" y="10" width="6" height="18" fill="#fdd835"/><path d="M4 12 L30 6 L52 2" stroke="#fdd835" fill="none" stroke-width="2"/><path d="M52 2l-7 0M52 2l-2 6" stroke="#fdd835" stroke-width="2"/></svg>
+    </div>
+  </div>
+
+  <app-performance-panel/>
+</section>

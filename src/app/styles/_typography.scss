@@ -1,0 +1,92 @@
+// ============================================================
+// CONNEXIS typography — font stack, logo and title/value sizing
+// lifted VERBATIM from SOURCE_HTML (font rules only)
+// ============================================================
+body {
+  font-family: 'Inter', system-ui, 'Segoe UI', Arial, sans-serif;
+}
+
+.logo-text {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #161616;
+}
+.logo-text .x {
+  color: #e01717;
+}
+
+/* stat titles / values */
+.stat-card .s-title {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  color: #2b2b2b;
+  display: block;
+}
+.stat-card .s-value {
+  font-size: 15px;
+  font-weight: 800;
+  color: #111;
+  margin-top: 3px;
+  display: block;
+}
+.stat-card .s-value.green {
+  color: var(--green);
+}
+.stat-card .s-value.red {
+  color: var(--red);
+}
+
+/* fuel card titles / sub / values */
+.fb-card .f-title {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  color: #555;
+  text-transform: uppercase;
+}
+.fb-card .f-sub {
+  font-size: 9px;
+  color: #888;
+  margin: 3px 0 5px;
+}
+.fb-card .f-value {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--blue);
+}
+.fb-card .f-value.red {
+  color: var(--red);
+}
+.fb-card.tank-card .f-title {
+  font-size: 11.5px;
+  color: #666;
+  text-transform: none;
+}
+.fb-card.tank-card .f-value {
+  color: #111;
+  font-size: 17px;
+}
+.filled-card .f-value {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--green);
+}
+
+/* consumed card text */
+.consumed-card .c-title {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+.consumed-card .c-sub {
+  font-size: 8.5px;
+  opacity: 0.8;
+  margin-top: 3px;
+}
+.consumed-card .c-value {
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 4px;
+}

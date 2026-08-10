@@ -1,0 +1,15 @@
+// ============================================================
+// NNEXIS design tokens — lifted VERBATIM from SOURCE_HTML :root
+// ============================================================
+:root{
+  --dark:#262c37; --card:#ffffff; --side:#f2f1ef;
+  --txt:#333; --gray:#8a8a8a; --blue:#1e88e5; --sky:#29b0e8;
+  --green:#5cd400; --red:#f31414; --purple:#7c3aed; --yellow:#fdd835;
+  --orange:#f9a825; --indigo:#3d5afe;
+}
+
+// SCSS $vars mirroring the CSS custom properties above
+$dark:#262c37; $card:#ffffff; $side:#f2f1ef;
+$txt:#333; $gray:#8a8a8a; $blue:#1e88e5; $sky:#29b0e8;
+$green:#5cd400; $red:#f31414; $purple:#7c3aed; $yellow:#fdd835;
+$orange:#f9a825; $indigo:#3d5afe;

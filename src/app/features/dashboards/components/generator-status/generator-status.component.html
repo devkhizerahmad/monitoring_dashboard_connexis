@@ -1,0 +1,22 @@
+<section class="gen-status">
+  <header class="panel-head"><h2>{{ statusTitle }}</h2></header>
+  <div class="gen-body">
+    <span class="on-pill">
+      <svg viewBox="0 0 10 12"><path d="M6 0L0 7h4l-1 5 6-7H5z"/></svg>{{ onLabel }}
+    </span>
+    <img class="gen-img icon-img" [src]="genImageUrl()" alt="generator">
+
+    <app-select [options]="groups()" [ngModel]="group()" (ngModelChange)="group.set($event)"/>
+    <app-select [options]="zones()" [ngModel]="zone()" (ngModelChange)="zone.set($event)"/>
+    <app-select [options]="units()" [big]="true" [ngModel]="unit()" (ngModelChange)="unit.set($event)"/>
+
+    <div class="gen-stat" *ngFor="let stat of genStats()" [class.tinted]="stat.tinted">
+      <span class="gs-icon"><app-icon [name]="stat.icon"/></span>
+      <div>
+        <small class="lab">{{ stat.label }}</small>
+        <small>{{ stat.sub }}</small>
+        <b [class.blue]="stat.blue">{{ stat.value }}</b>
+      </div>
+    </div>
+  </div>
+</section>

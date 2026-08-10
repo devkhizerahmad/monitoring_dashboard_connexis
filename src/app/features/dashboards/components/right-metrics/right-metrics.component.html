@@ -1,0 +1,38 @@
+<div class="right-col">
+  <div class="metrics-grid">
+    <app-card variant="metric" *ngFor="let metric of runningMetrics()">
+      <span class="m-ic" [ngClass]="metric.iconClass" [style]="metric.iconStyle">
+        <span class="lahore-tag" *ngIf="metric.tag">{{ metric.tag }}</span>
+        <app-icon [name]="metric.icon"/>
+      </span>
+      <div>
+        <small [class.t]="true">{{ metric.small }}</small>
+        <span class="sub2" *ngIf="metric.sub2">{{ metric.sub2 }}</span>
+        <b [class.red]="metric.valueClass === 'red'" [style]="metric.valueStyle">{{ metric.value }}</b>
+      </div>
+    </app-card>
+  </div>
+
+  <div class="highlights-h">{{ highlightsHead() }}</div>
+  <div class="metrics-grid">
+    <app-card variant="highlight" *ngFor="let item of highlightCards()">
+      <span class="m-ic plain"><app-icon [name]="item.icon"/></span>
+      <div>
+        <small>{{ item.title }}</small>
+        <span class="date">{{ item.date }}</span>
+        <b>{{ item.value }}</b>
+      </div>
+    </app-card>
+  </div>
+
+  <div class="usage-bar">
+    <svg viewBox="0 0 64 34" fill="none" stroke="#5e35b1" stroke-width="2"><rect x="2" y="6" width="18" height="22"/><rect x="24" y="6" width="16" height="22"/><rect x="44" y="6" width="18" height="22"/><path d="M11 10l-4 6h4l-2 6M32 10l-4 6h4l-2 6M53 10l-4 6h4l-2 6" stroke="#f9a825"/><path d="M20 17h4M40 17h4"/></svg>
+    <span class="u-label">{{ usage().label }}</span>
+    <span class="u-value">{{ usage().value }}</span>
+  </div>
+
+  <div class="alerts-row">
+    <app-latest-alerts/>
+    <app-alert-badges/>
+  </div>
+</div>

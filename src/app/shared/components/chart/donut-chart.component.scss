@@ -1,0 +1,66 @@
+/* donut selectors — VERBATIM from SOURCE_HTML */
+.donut {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  position: relative;
+  flex: 0 0 132px;
+}
+.donut.d1 {
+  background: conic-gradient(#7c3aed 0 30%, #2196f3 30% 100%);
+}
+.donut.d2 {
+  background: conic-gradient(#7c3aed 0 19%, #2196f3 19% 58%, #424242 58% 83%, #fdd835 83% 100%);
+}
+.donut .hole {
+  position: absolute;
+  inset: 33px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.donut .hole small {
+  font-size: 9.5px;
+  color: #777;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.donut .pct {
+  position: absolute;
+  font-size: 8px;
+  font-weight: 800;
+}
+.donut .p30 {
+  top: 9px;
+  right: 20px;
+  color: #5e35b1;
+}
+.donut .p70 {
+  bottom: 11px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+}
+.legend {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  color: #555;
+  font-weight: 600;
+}
+.legend .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: 0 0 9px;
+}

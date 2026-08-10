@@ -1,0 +1,10 @@
+/* badges-col selector — VERBATIM from SOURCE_HTML */
+.badges-col {
+  width: 64px;
+  flex: 0 0 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+}
