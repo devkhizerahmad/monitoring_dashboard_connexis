@@ -54,3 +54,14 @@
   color: #999;
   margin-top: 4px;
 }
+
+/* Mobile: charts stack vertically to avoid horizontal overflow. */
+@media (max-width: 639.98px) {
+  .charts-row {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .chart-flex {
+    gap: 12px;
+  }
+}
