@@ -37,7 +37,14 @@
 }
 .m-ic.plain {
   background: transparent;
-  width: 26px;
+  width: 36px;
+  height: 40px;
+  flex: 0 0 36px;
+}
+.m-ic.plain .h-img {
+  width: 36px;
+  height: 40px;
+  object-fit: contain;
 }
 .m-card small {
   display: block;
@@ -94,15 +101,24 @@
   color: #555;
   display: block;
 }
+.h-card .hl-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
 .h-card .date {
+  display: block;
   font-size: 7.5px;
-  color: #999;
-  margin: 2px 0;
+  color: #99a;
+  margin: 1px 0 2px;
+  white-space: nowrap;
 }
 .h-card b {
-  font-size: 13px;
+  display: block;
+  font-size: 14px;
   font-weight: 800;
   color: var(--indigo);
+  line-height: 1.1;
 }
 .usage-bar {
   background: #fff;
@@ -112,10 +128,14 @@
   align-items: center;
   gap: 12px;
 }
-.usage-bar svg {
-  width: 56px;
-  height: 30px;
-  flex: 0 0 56px;
+.usage-bar svg,
+.usage-bar .u-img {
+  width: 72px;
+  height: 38px;
+  flex: 0 0 72px;
+}
+.usage-bar .u-img {
+  object-fit: contain;
 }
 .usage-bar .u-label {
   font-size: 12.5px;
@@ -127,4 +147,17 @@
   font-size: 16px;
   font-weight: 800;
   color: var(--indigo);
+}
+
+/* Small phones: keep two-column metric grids from overflowing. */
+@media (max-width: 559.98px) {
+  .metrics-grid {
+    min-width: 0;
+  }
+  .h-card {
+    min-width: 0;
+  }
+  .h-card .date {
+    white-space: normal;
+  }
 }

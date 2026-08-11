@@ -27,4 +27,15 @@ export class RightMetricsComponent {
   highlightsHead = this.dashboard.highlightsHead;
   highlightCards = this.dashboard.highlightCards;
   usage = this.dashboard.usage;
+
+  fmtDate(raw: string): string {
+    const m = raw.match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2}):(\d{2})$/);
+    if (!m) return raw;
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const [, y, mo, d, hh, mm] = m;
+    const hour = +hh;
+    const ampm = hour >= 12 ? 'PM' : 'AM';
+    const h12 = hour % 12 === 0 ? 12 : hour % 12;
+    return `${d} ${months[+mo - 1]} ${y} \u00b7 ${h12}:${mm} ${ampm}`;
+  }
 }
