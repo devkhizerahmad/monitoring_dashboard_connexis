@@ -21,13 +21,13 @@
   transform: translateY(-2px);
 }
 .stat-card .s-icon {
-  height: 36px;
+  height: 46px;
   display: flex;
   align-items: center;
 }
 .stat-card .s-icon img {
-  height: 36px;
-  max-width: 52px;
+  height: 46px;
+  max-width: 60px;
   object-fit: contain;
 }
 .c1 {
@@ -79,4 +79,33 @@
 .gen-ic {
   width: 44px;
   height: 30px;
+}
+
+/* Tablet/small laptop: stat cards wrap into balanced rows. */
+@media (max-width: 1199.98px) {
+  .stats-row {
+    flex-wrap: wrap;
+  }
+  .c1,
+  .c2,
+  .c3,
+  .c4,
+  .c5,
+  .c6 {
+    flex: 1 1 30%;
+    min-width: 150px;
+  }
+}
+
+/* Mobile: stat cards stack full width. */
+@media (max-width: 559.98px) {
+  .c1,
+  .c2,
+  .c3,
+  .c4,
+  .c5,
+  .c6 {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
 }

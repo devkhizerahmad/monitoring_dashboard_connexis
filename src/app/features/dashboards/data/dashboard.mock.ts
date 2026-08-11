@@ -14,18 +14,17 @@ import type {
 import type { AlertItem, AlertBadge } from '../../../core/models/alert.model';
 
 /* ------------------------------------------------------------------ */
-/* image / asset URLs                                                  */
+/* image / asset URLs (local generated assets in public/assets)         */
 /* ------------------------------------------------------------------ */
 export const IMAGES = {
-  LADY: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/1f50a786a-df88-4d66-9b7e-a12b184fb498.png',
-  GEN_BODY: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/1838dddd4-e39d-4d31-a63d-151af2e7e320.png',
-  FILLING: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/1dbd6b561-7b4d-421c-98ea-80b32b958df1.png',
-  DEPLETION: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/14d6ebddd-ef27-4b6d-aaa6-63acdc78489f.png',
-  TANK_OPENING: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/166707d12-38f2-40fe-9ab7-235512370b28.png',
-  TANK_CLOSING: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/1f32be30b-d95a-465c-9a5c-b383e6a885a5.png',
-  TANK_SIZE: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/1e34f9b33-497b-40bc-b45f-a370a605bacd.png',
-  FUEL_DEPLETION: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/1c86ae279-91d1-4482-a9d0-a52cc01680f5.png',
-  FUEL_FILLED: 'https://image.qwenlm.ai/public_source/d1a31da3-1d1a-435c-9afe-18351879d332/110fe4146-e165-42de-96cf-fe2576127df9.png',
+  GEN_BODY: '/assets/gen-body.png',
+  FILLING: '/assets/fuel-filled.png',
+  DEPLETION: '/assets/total-fuel-depletion.png',
+  TANK_OPENING: '/assets/tank-opening.png',
+  TANK_CLOSING: '/assets/tank-closing.png',
+  TANK_SIZE: '/assets/tank-size.png',
+  FUEL_DEPLETION: '/assets/fuel-depletion.png',
+  FUEL_FILLED: '/assets/fuel-filled.png',
 };
 
 /* ------------------------------------------------------------------ */
@@ -47,8 +46,8 @@ export const SIDEBAR = {
 } as const;
 
 export const STORE_BADGES: StoreBadge[] = [
-  { icon: 'gplay', line1: 'GET IT ON', line2: 'Google Play' },
-  { icon: 'apple', line1: 'Download on the', line2: 'App Store' },
+  { img: '/assets/playstore.png', line1: 'GET IT ON', line2: 'Google Play' },
+  { img: '/assets/appstore.png', line1: 'Download on the', line2: 'App Store' },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -79,19 +78,19 @@ export const STAT_CARDS: StatCard[] = [
     cardClass: 'c1',
     title: 'TOTAL GENERATORS',
     value: '13',
-    icon: { type: 'icon', name: 'gen-dark' },
+    icon: { type: 'img', url: '/assets/total-generators.png' },
   },
   {
     cardClass: 'c2',
     title: 'ON',
     value: '10',
-    icon: { type: 'icon', name: 'gen-green' },
+    icon: { type: 'img', url: '/assets/total-generators-on.png' },
   },
   {
     cardClass: 'c3',
     title: 'OFF',
     value: '3',
-    icon: { type: 'icon', name: 'gen-red' },
+    icon: { type: 'img', url: '/assets/total-generators-off.png' },
   },
   {
     cardClass: 'c4',
@@ -124,9 +123,10 @@ export const GEN_ZONES: string[] = ['Zone C', 'Zone A', 'Zone B'];
 export const GEN_UNITS: string[] = ['GEN-7420', 'GEN-1043'];
 
 export const GEN_STATS: GenStat[] = [
-  { icon: 'power', label: 'TOTAL POWER', sub: 'Last Day', value: '120 kVA' },
+  { icon: 'power', imageUrl: '/assets/total-power.png', label: 'TOTAL POWER', sub: 'Last Day', value: '120 kVA' },
   {
     icon: 'gauge',
+    imageUrl: '/assets/last-usage-hours.png',
     label: 'Last Usage Hours',
     sub: 'Since Last Day',
     value: '4h 30m 3s',
@@ -135,6 +135,7 @@ export const GEN_STATS: GenStat[] = [
   },
   {
     icon: 'thermo',
+    imageUrl: '/assets/last-gen-start.png',
     label: 'Last Gen Start',
     sub: 'Since Last Day',
     value: '2:30pm',
@@ -255,11 +256,11 @@ export const RUNNING_METRICS: RunningMetric[] = [
 export const HIGHLIGHTS_HEAD = 'October highlights';
 
 export const HIGHLIGHT_CARDS: HighlightCard[] = [
-  { icon: 'power', title: 'Maximal Usage', date: '2024-09-02 10:30:45', value: '160 kVA' },
-  { icon: 'transformer', title: 'Minimal Usage', date: '2024-09-02 10:30:45', value: '40 kVA' },
+  { icon: 'power', imageUrl: '/assets/maximal-usage.png', title: 'Maximal Usage', date: '2024-09-02 10:30:45', value: '160 kVA' },
+  { icon: 'transformer', imageUrl: '/assets/minimal-usage.png', title: 'Minimal Usage', date: '2024-09-02 10:30:45', value: '40 kVA' },
 ];
 
-export const USAGE_SUMMARY: UsageSummary = { label: 'Total Usage', value: '280 kVA' };
+export const USAGE_SUMMARY: UsageSummary = { label: 'Total Usage', value: '280 kVA', imageUrl: '/assets/total-usage.png' };
 
 /* ------------------------------------------------------------------ */
 /* latest alerts + badges                                              */
