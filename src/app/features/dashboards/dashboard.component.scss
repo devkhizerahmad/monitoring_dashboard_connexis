@@ -6,3 +6,20 @@
   align-items: stretch;
   flex: 1;
 }
+
+/* Tablet/small laptop: collapse the three columns into one fluid stack. */
+@media (max-width: 1199.98px) {
+  .content-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  /* Fuel breakdown first, generator status after it, metrics last. */
+  .gen-status {
+    order: 2;
+  }
+  .fuel-center {
+    order: 1;
+  }
+  .right-col {
+    order: 3;
+  }
+}

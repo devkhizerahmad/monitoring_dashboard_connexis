@@ -98,3 +98,41 @@
   right: 8px;
   bottom: 6px;
 }
+
+/* Mobile: fuel row stacks vertically, cards go full width. */
+@media (max-width: 639.98px) {
+  .fb-row {
+    flex-direction: column;
+  }
+  // .filled-card {
+  //   flex: 1 1 auto;
+  // }
+  /* Consumed badge: pull the image into the flow so text + image sit
+     in one clean row instead of the absolutely-positioned artwork. */
+  .consumed-card {
+    padding: 10px 12px;
+  }
+  .consumed-card > div {
+    min-width: 0;
+  }
+  .consumed-card img {
+    position: static;
+    margin-left: 10px;
+    flex: 0 0 auto;
+  }
+  .consumed-card svg.bars {
+    display: none;
+  }
+}
+
+/* Very small screens: scale the consumed text down so it always fits
+   beside the image without clipping or overlapping. */
+@media (max-width: 559.98px) {
+  .consumed-card .c-title {
+    font-size: 10.5px;
+  }
+  .consumed-card .c-value {
+    font-size: 16px;
+  }
+}
+
