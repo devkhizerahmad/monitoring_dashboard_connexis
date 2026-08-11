@@ -39,6 +39,9 @@ testem.log
 /typings
 __screenshots__/
 
+# Browser testing artifacts (playwright MCP snapshots/logs)
+.playwright-mcp/
+
 # Local dev logs
 /logs
 
