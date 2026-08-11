@@ -16,8 +16,7 @@ body {
   font-family: 'Inter', system-ui, 'Segoe UI', Arial, sans-serif;
   background: var(--side);
   color: var(--txt);
-  min-width: 1264px;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 img {
   user-select: none;
@@ -28,7 +27,18 @@ img {
 .app {
   display: flex;
   min-height: 100vh;
-  min-width: 1264px;
+  min-width: 0;
+}
+
+/* Desktop/laptop: preserve the original fixed-width shell verbatim. */
+@media (min-width: 1264px) {
+  body {
+    min-width: 1264px;
+    overflow-x: auto;
+  }
+  .app {
+    min-width: 1264px;
+  }
 }
 
 .stub-host {

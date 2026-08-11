@@ -1,1 +1,16 @@
 /* .app selector lives in src/styles.scss (global reset block). */
+
+/* Mobile drawer backdrop — visible only when the drawer is open. */
+.scrim {
+  display: none;
+}
+@media (max-width: 1263.98px) {
+  body:not(.side-collapsed) .scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 90;
+    cursor: pointer;
+  }
+}
