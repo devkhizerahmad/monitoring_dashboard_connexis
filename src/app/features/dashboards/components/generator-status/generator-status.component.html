@@ -11,7 +11,10 @@
     <app-select [options]="units()" [big]="true" [ngModel]="unit()" (ngModelChange)="unit.set($event)"/>
 
     <div class="gen-stat" *ngFor="let stat of genStats()" [class.tinted]="stat.tinted">
-      <span class="gs-icon"><app-icon [name]="stat.icon"/></span>
+      <span class="gs-icon">
+        <img class="gs-img" *ngIf="stat.imageUrl" [src]="stat.imageUrl" alt="">
+        <app-icon *ngIf="!stat.imageUrl" [name]="stat.icon"/>
+      </span>
       <div>
         <small class="lab">{{ stat.label }}</small>
         <small>{{ stat.sub }}</small>
