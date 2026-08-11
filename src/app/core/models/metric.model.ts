@@ -18,6 +18,7 @@ export interface RunningMetric {
 
 export interface HighlightCard {
   icon: IconName;
+  imageUrl?: string;
   title: string;
   date: string;
   value: string;
@@ -33,6 +34,7 @@ export interface Weather {
 export interface UsageSummary {
   label: string;
   value: string;
+  imageUrl?: string;
 }
 
 export interface PerformanceChart {

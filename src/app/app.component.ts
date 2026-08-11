@@ -39,5 +39,27 @@ export class AppComponent {
         this.renderer.removeClass(this.document.body, 'side-collapsed');
       }
     });
+
+    const viewport = this.document.defaultView;
+    if (viewport) {
+      const mq = viewport.matchMedia('(max-width: 1263.98px)');
+      const apply = () => {
+        if (mq.matches) {
+          this.theme.collapse();
+        } else {
+          this.theme.expand();
+        }
+      };
+      if (typeof mq.addEventListener === 'function') {
+        mq.addEventListener('change', apply);
+      } else if (typeof mq.addListener === 'function') {
+        mq.addListener(apply);
+      }
+      apply();
+    }
+  }
+
+  onScrim(): void {
+    this.theme.collapse();
   }
 }

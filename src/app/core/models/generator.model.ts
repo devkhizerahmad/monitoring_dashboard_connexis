@@ -44,6 +44,7 @@ export interface StatCard {
 
 export interface GenStat {
   icon: IconName;
+  imageUrl?: string;
   label: string;
   sub: string;
   value: string;
