@@ -10,4 +10,12 @@ export class ThemeService {
   toggle(): void {
     this.sidebarCollapsed.update((v) => !v);
   }
+
+  collapse(): void {
+    this.sidebarCollapsed.set(true);
+  }
+
+  expand(): void {
+    this.sidebarCollapsed.set(false);
+  }
 }

@@ -10,7 +10,7 @@ export interface NavItem {
 }
 
 export interface StoreBadge {
-  icon: IconName;
+  img: string;
   line1: string;
   line2: string;
 }
