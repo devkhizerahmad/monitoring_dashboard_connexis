@@ -105,10 +105,11 @@ body.side-collapsed .sidebar {
 .store-badge:hover {
   transform: translateY(-2px);
 }
-.store-badge svg {
-  width: 16px;
-  height: 16px;
-  flex: 0 0 16px;
+.store-logo {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  object-fit: contain;
 }
 .store-badge small {
   display: block;
@@ -137,10 +138,36 @@ body.side-collapsed .sidebar {
   font-weight: 700;
   margin-bottom: 5px;
 }
-#qr {
+.qr-img {
   width: 72px;
   height: 72px;
   background: #fff;
   border: 1px solid #ddd;
+  object-fit: contain;
   display: block;
+}
+
+/* Small screens: sidebar becomes an off-canvas drawer. */
+@media (max-width: 1263.98px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 195px;
+    flex-basis: 195px;
+    z-index: 100;
+    transform: translateX(-100%);
+    box-shadow: 2px 0 14px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+  }
+  body.side-collapsed .sidebar {
+    width: 195px;
+    flex-basis: 195px;
+    transform: translateX(-100%);
+  }
+  body:not(.side-collapsed) .sidebar {
+    transform: translateX(0);
+  }
 }

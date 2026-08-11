@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, inject, ViewEncapsulation } from '@
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { IconComponent } from '../../shared/components/icon/icon.component';
-import { QrCodeComponent } from '../../shared/components/qr-code/qr-code.component';
 import { DashboardService } from '../../core/services/dashboard.service';
+import { ThemeService } from '../../core/services/theme.service';
 import { SIDEBAR, STORE_BADGES } from '../../features/dashboards/data/dashboard.mock';
 
 /**
@@ -13,7 +13,7 @@ import { SIDEBAR, STORE_BADGES } from '../../features/dashboards/data/dashboard.
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule, RouterModule, IconComponent, QrCodeComponent],
+  imports: [CommonModule, RouterModule, IconComponent],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,6 +22,7 @@ import { SIDEBAR, STORE_BADGES } from '../../features/dashboards/data/dashboard.
 })
 export class SidebarComponent {
   private dashboard = inject(DashboardService);
+  private theme = inject(ThemeService);
 
   navItems = this.dashboard.navItems;
 
@@ -30,5 +31,11 @@ export class SidebarComponent {
 
   linkOptions(route: string): { exact: boolean } {
     return { exact: route === '/' };
+  }
+
+  onNavClick(): void {
+    if (typeof window !== 'undefined' && window.matchMedia('(max-width: 1263.98px)').matches) {
+      this.theme.collapse();
+    }
   }
 }
