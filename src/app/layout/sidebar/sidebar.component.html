@@ -8,7 +8,8 @@
        *ngFor="let item of navItems()"
        [routerLink]="item.route"
        routerLinkActive="active"
-       [routerLinkActiveOptions]="linkOptions(item.route)">
+       [routerLinkActiveOptions]="linkOptions(item.route)"
+       (click)="onNavClick()">
       <app-icon [name]="item.icon"/>{{ item.label }}
     </a>
   </nav>
@@ -18,11 +19,11 @@
     <div class="stores">
       <a class="store-badge" href="#"
          *ngFor="let badge of storeBadges">
-        <app-icon [name]="badge.icon"/>
+        <img class="store-logo" [src]="badge.img" alt="">
         <span><small>{{ badge.line1 }}</small><b>{{ badge.line2 }}</b></span>
       </a>
     </div>
     <div class="scan-label">{{ sidebar.scanLabel }}</div>
-    <app-qr-code/>
+    <img class="qr-img" src="/assets/connexis-qr.png" alt="QR code">
   </div>
 </aside>
