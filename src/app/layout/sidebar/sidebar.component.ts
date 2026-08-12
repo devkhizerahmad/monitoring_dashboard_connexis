@@ -25,6 +25,7 @@ export class SidebarComponent {
   private theme = inject(ThemeService);
 
   navItems = this.dashboard.navItems;
+  sidebarCollapsed = this.theme.sidebarCollapsed;
 
   sidebar = SIDEBAR;
   storeBadges = STORE_BADGES;
@@ -34,7 +35,11 @@ export class SidebarComponent {
   }
 
   onNavClick(): void {
-    if (typeof window !== 'undefined' && window.matchMedia('(max-width: 1263.98px)').matches) {
+    if (
+      typeof window !== 'undefined' &&
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(max-width: 1263.98px)').matches
+    ) {
       this.theme.collapse();
     }
   }
