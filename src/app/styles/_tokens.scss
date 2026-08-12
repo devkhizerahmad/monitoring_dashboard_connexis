@@ -6,6 +6,15 @@
   --txt:#333; --gray:#8a8a8a; --blue:#1e88e5; --sky:#29b0e8;
   --green:#5cd400; --red:#f31414; --purple:#7c3aed; --yellow:#fdd835;
   --orange:#f9a825; --indigo:#3d5afe;
+  --ink:#111827;
+  --surface:#ffffff;
+  --surface-2:#f7f8fb;
+  --surface-3:#eef2ff;
+  --stroke:rgba(15, 23, 42, 0.08);
+  --stroke-strong:rgba(15, 23, 42, 0.14);
+  --shadow-soft:0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-card:0 12px 30px rgba(15, 23, 42, 0.12);
+  --shadow-strong:0 24px 50px rgba(15, 23, 42, 0.18);
 }
 
 // SCSS $vars mirroring the CSS custom properties above

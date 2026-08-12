@@ -18,17 +18,17 @@ body {
 
 /* stat titles / values */
 .stat-card .s-title {
-  font-size: 10.5px;
+  font-size: 9.5px;
   font-weight: 800;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
   color: #2b2b2b;
   display: block;
 }
 .stat-card .s-value {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 800;
   color: #111;
-  margin-top: 3px;
+  margin-top: 1px;
   display: block;
 }
 .stat-card .s-value.green {
@@ -40,19 +40,19 @@ body {
 
 /* fuel card titles / sub / values */
 .fb-card .f-title {
-  font-size: 10px;
+  font-size: 9.5px;
   font-weight: 800;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
   color: #555;
   text-transform: uppercase;
 }
 .fb-card .f-sub {
-  font-size: 9px;
+  font-size: 8px;
   color: #888;
-  margin: 3px 0 5px;
+  margin: 2px 0 4px;
 }
 .fb-card .f-value {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 800;
   color: var(--blue);
 }
@@ -60,33 +60,33 @@ body {
   color: var(--red);
 }
 .fb-card.tank-card .f-title {
-  font-size: 11.5px;
+  font-size: 10px;
   color: #666;
   text-transform: none;
 }
 .fb-card.tank-card .f-value {
   color: #111;
-  font-size: 17px;
+  font-size: 15px;
 }
 .filled-card .f-value {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 800;
   color: var(--green);
 }
 
 /* consumed card text */
 .consumed-card .c-title {
-  font-size: 11.5px;
+  font-size: 10px;
   font-weight: 800;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.25px;
 }
 .consumed-card .c-sub {
-  font-size: 8.5px;
+  font-size: 8px;
   opacity: 0.8;
-  margin-top: 3px;
+  margin-top: 2px;
 }
 .consumed-card .c-value {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 800;
-  margin-top: 4px;
+  margin-top: 3px;
 }
