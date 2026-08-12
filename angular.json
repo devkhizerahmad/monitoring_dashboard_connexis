@@ -80,6 +80,14 @@
           },
           "defaultConfiguration": "production"
         },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "buildTarget": "connexis-dashboard:build:development",
+            "runner": "vitest",
+            "runnerConfig": "vitest.config.ts"
+          }
+        },
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
