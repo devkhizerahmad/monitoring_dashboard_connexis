@@ -4,8 +4,7 @@
     <h3>{{ alertsTitle }}</h3>
   </div>
   <div class="alert-item"
-       *ngFor="let alert of alertsService.alerts()"
-       [class.hidden]="alert.hidden && !alertsService.expanded()">
+       *ngFor="let alert of alertsService.visible()">
     <span class="a-dot" [style.background]="alert.dot"></span>
     <div>
       <div class="a-title">{{ alert.title }}</div>
@@ -13,5 +12,5 @@
     </div>
     <span class="a-time">{{ alert.time }}</span>
   </div>
-  <button class="view-more" (click)="alertsService.toggleMore()">{{ alertsService.viewMoreLabel() }}</button>
+  <button class="view-more" type="button" (click)="alertsService.toggleMore()">{{ alertsService.viewMoreLabel() }}</button>
 </div>
