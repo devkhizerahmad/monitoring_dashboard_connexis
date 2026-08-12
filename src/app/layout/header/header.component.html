@@ -1,10 +1,10 @@
 <header class="topbar">
-  <button class="hamburger" aria-label="toggle sidebar" (click)="onToggle()">
+  <button class="hamburger" type="button" aria-label="Toggle sidebar" (click)="onToggle()">
     <span></span><span></span><span></span>
   </button>
-  <button class="bank-select">
+  <div class="bank-select" role="img" [attr.aria-label]="bank.name + ', ' + bank.tagline">
     <app-icon name="bank-logo"/>
     <span class="b-txt"><b>{{ bank.name }}</b><i>{{ bank.tagline }}</i></span>
-    <app-icon name="chevron"/>
-  </button>
+    <app-icon name="chevron" aria-hidden="true"/>
+  </div>
 </header>

@@ -1,17 +1,23 @@
 /* .main selector — VERBATIM from SOURCE_HTML */
 .main {
   flex: 1;
-  background: var(--dark);
-  padding: 12px 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 120px),
+    linear-gradient(180deg, #252b36 0%, #1f2530 100%);
+  padding: 14px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   min-width: 0;
+  position: relative;
+  overflow: hidden;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.02);
 }
 
 @media (max-width: 639.98px) {
   .main {
-    padding: 10px 8px;
+    padding: 10px 8px 12px;
     gap: 10px;
   }
 }
