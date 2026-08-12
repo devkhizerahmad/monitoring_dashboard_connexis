@@ -1,28 +1,37 @@
 /* fuel-center selectors — VERBATIM from SOURCE_HTML */
 .fuel-center {
-  background: #f7f7f7;
-  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 247, 251, 0.96));
+  border-radius: 12px;
   padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 11px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(15, 23, 42, 0.06);
   min-width: 0;
 }
 .center-head {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
+  // margin: -12px -12px 0;
+  // padding: 0 12px 9px;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 5px 5px -2px rgba(0, 0, 0, 0.4);
+  margin: -8px -12px 0;
+  padding: 12px 9px;
 }
 .center-head h2 {
   font-size: 13.5px;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 0.4px;
-  color: var(--sky);
+  color: #0f6ea7;
 }
 .center-head svg {
   width: 13px;
   height: 16px;
+  flex: 0 0 auto;
 }
 .fb-grid {
   display: grid;
@@ -32,17 +41,22 @@
 
 /* .fb-card font rules live in _typography.scss */
 .fb-card {
-  background: #e8e8e8;
-  border-radius: 6px;
+  background: linear-gradient(180deg, #ffffff 0%, #eef2f7 100%);
+  border-radius: 10px;
   padding: 10px 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-height: 76px;
-  transition: transform 0.15s;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.05);
 }
 .fb-card:hover {
   transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(15, 23, 42, 0.09);
 }
 .fb-card img {
   width: 44px;
@@ -50,7 +64,7 @@
   object-fit: contain;
 }
 .fb-card.tank-card {
-  background: linear-gradient(180deg, #efefef, #dcdcdc);
+  background: linear-gradient(180deg, #f8fafc, #e2e8f0);
 }
 .fb-row {
   display: flex;
@@ -58,12 +72,14 @@
 }
 .filled-card {
   flex: 0 0 44%;
-  background: #f1f1f1;
-  border-radius: 6px;
+  background: linear-gradient(180deg, #ffffff 0%, #f2f4f8 100%);
+  border-radius: 10px;
   padding: 10px 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.05);
 }
 .filled-card img {
   width: 46px;
@@ -72,8 +88,10 @@
 }
 .consumed-card {
   flex: 1;
-  border-radius: 6px;
-  background: linear-gradient(90deg, #0b2740 0%, #0d47a1 55%, #1273c4 100%);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.2), transparent 32%),
+    linear-gradient(90deg, #0b2740 0%, #0d47a1 55%, #1273c4 100%);
   color: #fff;
   padding: 10px 14px;
   display: flex;
@@ -81,6 +99,7 @@
   justify-content: space-between;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 12px 24px rgba(13, 71, 161, 0.22);
 }
 
 /* consumed-card text rules live in _typography.scss */
@@ -101,6 +120,9 @@
 
 /* Mobile: fuel row stacks vertically, cards go full width. */
 @media (max-width: 639.98px) {
+  .fb-grid {
+    grid-template-columns: 1fr;
+  }
   .fb-row {
     flex-direction: column;
   }

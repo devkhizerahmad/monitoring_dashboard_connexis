@@ -1,24 +1,25 @@
 /* gen-status selectors — VERBATIM from SOURCE_HTML */
 .gen-status {
-  background: #f4f4f4;
-  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 246, 250, 0.96));
+  border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(15, 23, 42, 0.06);
 }
 .panel-head {
   padding: 12px 14px;
-  background: #ececec;
-  border-bottom: 1px solid #e0e0e0;
+  background: linear-gradient(180deg, #f6f7fa, #eceff6);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
 }
 .panel-head h2 {
   font-size: 15px;
-  font-weight: 800;
-  color: #4a4a4a;
+  font-weight: 900;
+  color: #374151;
 }
 .gen-body {
-  padding: 12px 14px;
+  padding: 12px 14px 14px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -27,15 +28,16 @@
   position: absolute;
   top: 10px;
   right: 12px;
-  background: #10131a;
+  background: linear-gradient(180deg, #111827, #06080d);
   color: #35e01e;
-  border-radius: 20px;
-  padding: 3px 10px 3px 8px;
+  border-radius: 999px;
+  padding: 4px 10px 4px 8px;
   font-size: 10.5px;
   font-weight: 800;
   display: flex;
   align-items: center;
   gap: 4px;
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.18);
 }
 .on-pill svg {
   width: 9px;
@@ -57,12 +59,15 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px;
-  border-radius: 6px;
+  padding: 9px 10px;
+  border-radius: 10px;
   margin-top: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.05);
 }
 .gen-stat.tinted {
-  background: #e9e9ec;
+  background: linear-gradient(180deg, rgba(237, 241, 248, 0.9), rgba(226, 232, 240, 0.9));
 }
 .gs-icon {
   width: 44px;
@@ -80,20 +85,20 @@
 .gen-stat small {
   display: block;
   font-size: 9.5px;
-  color: #777;
-  font-weight: 600;
+  color: #667085;
+  font-weight: 700;
 }
 .gen-stat small.lab {
   font-size: 10px;
-  color: #444;
-  font-weight: 800;
+  color: #344054;
+  font-weight: 900;
   letter-spacing: 0.3px;
 }
 .gen-stat b {
   display: block;
   font-size: 14.5px;
-  font-weight: 800;
-  color: #1c1c1c;
+  font-weight: 900;
+  color: #111827;
   margin-top: 2px;
 }
 .gen-stat b.blue {
@@ -153,5 +158,35 @@
   .gen-stat:nth-of-type(3) {
     grid-area: st3;
     margin-top: 0;
+  }
+}
+
+@media (max-width: 639.98px) {
+  .gen-body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'img'
+      'pill'
+      'sel1'
+      'st1'
+      'sel2'
+      'st2'
+      'sel3'
+      'st3';
+    gap: 8px;
+  }
+
+  .gen-img {
+    justify-self: center;
+  }
+
+  .on-pill {
+    justify-self: start;
+  }
+
+  app-select:nth-of-type(1) .select,
+  app-select:nth-of-type(2) .select,
+  app-select:nth-of-type(3) .select {
+    height: 32px;
   }
 }

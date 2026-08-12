@@ -2,9 +2,10 @@
 .content-grid {
   display: grid;
   grid-template-columns: 252px minmax(0, 1fr) 302px;
-  gap: 13px;
+  gap: 14px;
   align-items: stretch;
   flex: 1;
+  min-width: 0;
 }
 
 /* Tablet/small laptop: collapse the three columns into one fluid stack. */
@@ -21,5 +22,11 @@
   }
   .right-col {
     order: 3;
+  }
+}
+
+@media (max-width: 559.98px) {
+  .content-grid {
+    gap: 10px;
   }
 }
