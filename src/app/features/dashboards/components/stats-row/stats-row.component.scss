@@ -1,32 +1,42 @@
 /* stats-row selectors — VERBATIM from SOURCE_HTML */
 .stats-row {
   display: flex;
-  gap: 13px;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 /* .stat-card font rules live in _typography.scss */
 .stat-card {
-  background: #fff;
-  border-radius: 4px;
-  min-height: 62px;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+  border-radius: 8px;
+  min-height: 66px;
   padding: 9px 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-  transition: transform 0.15s;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+  position: relative;
+  overflow: hidden;
 }
 .stat-card:hover {
   transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.12);
+}
+.stat-card > div {
+  min-width: 0;
 }
 .stat-card .s-icon {
-  height: 46px;
+  height: 44px;
   display: flex;
   align-items: center;
 }
 .stat-card .s-icon img {
-  height: 46px;
+  height: 44px;
   max-width: 60px;
   object-fit: contain;
 }
@@ -50,8 +60,8 @@
 }
 .pct-circle {
   position: relative;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: conic-gradient(
     var(--orange) 0 calc(var(--pct, 0) * 1%),
@@ -64,7 +74,7 @@
 .pct-circle::before {
   content: "";
   position: absolute;
-  inset: 4px;
+  inset: 5px;
   border-radius: 50%;
   background: #fff;
 }

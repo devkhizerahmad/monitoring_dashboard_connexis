@@ -46,8 +46,18 @@ export const SIDEBAR = {
 } as const;
 
 export const STORE_BADGES: StoreBadge[] = [
-  { img: '/assets/playstore.png', line1: 'GET IT ON', line2: 'Google Play' },
-  { img: '/assets/appstore.png', line1: 'Download on the', line2: 'App Store' },
+  {
+    img: '/assets/playstore.png',
+    line1: 'GET IT ON',
+    line2: 'Google Play',
+    href: 'https://play.google.com/store/search?q=connexis+tracker&c=apps',
+  },
+  {
+    img: '/assets/appstore.png',
+    line1: 'Download on the',
+    line2: 'App Store',
+    href: 'https://apps.apple.com/us/app/connexis-customer-app/id1544460706',
+  },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -66,7 +76,7 @@ export const ON_PILL_LABEL = 'ON';
 export const FUEL_CENTER_TITLE = 'FUEL BREAKDOWN PER- LITRE';
 
 export const PERF_TITLE = 'Generator Performance Over 1 Week';
-export const PERF_DOTS = '•••';
+export const PERF_DOTS = '...';
 
 export const ALERTS_TITLE = 'LATEST ALERTS';
 
@@ -191,7 +201,7 @@ export const FUEL_FLOW_CONSUMED: FuelFlow = {
 };
 
 /* ------------------------------------------------------------------ */
-/* performance panel — donut charts                                    */
+/* performance panel â€” donut charts                                  */
 /* ------------------------------------------------------------------ */
 export const PERF_LOAD: PerformanceChart = {
   variant: 'd1',
