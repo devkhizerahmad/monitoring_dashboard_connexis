@@ -14,9 +14,14 @@ body {
 }
 body {
   font-family: 'Inter', system-ui, 'Segoe UI', Arial, sans-serif;
-  background: var(--side);
+  background:
+    radial-gradient(circle at top left, rgba(124, 58, 237, 0.14), transparent 30%),
+    radial-gradient(circle at top right, rgba(33, 150, 243, 0.12), transparent 26%),
+    linear-gradient(180deg, #1d2330 0%, #242a36 100%);
   color: var(--txt);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 img {
   user-select: none;
@@ -27,18 +32,21 @@ img {
 .app {
   display: flex;
   min-height: 100vh;
+  width: 100%;
   min-width: 0;
+  position: relative;
+  isolation: isolate;
 }
-
-/* Desktop/laptop: preserve the original fixed-width shell verbatim. */
-@media (min-width: 1264px) {
-  body {
-    min-width: 1264px;
-    overflow-x: auto;
-  }
-  .app {
-    min-width: 1264px;
-  }
+.app::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.06), transparent 22%),
+    linear-gradient(180deg, rgba(15, 23, 42, 0.16), transparent 32%);
+  mix-blend-mode: screen;
+  opacity: 0.35;
 }
 
 .stub-host {
