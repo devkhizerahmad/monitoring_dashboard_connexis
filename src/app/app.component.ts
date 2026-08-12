@@ -41,7 +41,7 @@ export class AppComponent {
     });
 
     const viewport = this.document.defaultView;
-    if (viewport) {
+    if (viewport && typeof viewport.matchMedia === 'function') {
       const mq = viewport.matchMedia('(max-width: 1263.98px)');
       const apply = () => {
         if (mq.matches) {
@@ -56,6 +56,8 @@ export class AppComponent {
         mq.addListener(apply);
       }
       apply();
+    } else {
+      this.theme.expand();
     }
   }
 

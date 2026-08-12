@@ -13,4 +13,5 @@ export interface StoreBadge {
   img: string;
   line1: string;
   line2: string;
+  href: string;
 }
