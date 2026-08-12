@@ -1,4 +1,4 @@
-<aside class="sidebar">
+<aside class="sidebar" [attr.inert]="sidebarCollapsed() ? '' : null" [attr.aria-hidden]="sidebarCollapsed()">
   <div class="logo-row">
     <img class="logo-img" src="/assets/connexis_logo-light-removebg-preview.png" alt="Connexis">
   </div>
@@ -17,8 +17,12 @@
   <div class="side-bottom">
     <h3>{{ sidebar.lines[0] }}<br>{{ sidebar.lines[1] }}</h3>
     <div class="stores">
-      <a class="store-badge" href="#"
-         *ngFor="let badge of storeBadges">
+      <a class="store-badge"
+         *ngFor="let badge of storeBadges"
+         [href]="badge.href"
+         target="_blank"
+         rel="noopener noreferrer"
+         [attr.aria-label]="badge.line1 + ' ' + badge.line2">
         <img class="store-logo" [src]="badge.img" alt="">
         <span><small>{{ badge.line1 }}</small><b>{{ badge.line2 }}</b></span>
       </a>
