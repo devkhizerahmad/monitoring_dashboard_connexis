@@ -1,10 +1,19 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FeaturePlaceholderComponent } from '../../shared/components/feature-placeholder/feature-placeholder.component';
 
 @Component({
   selector: 'app-outage',
   standalone: true,
-  template: `<p class="stub-page">OUTAGE — stub page</p>`,
-  styles: [`.stub-page{margin:0;color:#e8e8e8;font-size:14px;font-weight:600}`],
+  imports: [FeaturePlaceholderComponent],
+  template: `
+    <app-feature-placeholder
+      eyebrow="Outage"
+      title="Outage history and recovery can live here"
+      summary="A proper outage page should show event timelines, affected assets, and recovery progress."
+      [notes]="['Incident timeline', 'Affected assets', 'Recovery status']"
+      footer="This gives the route real UX value while the backend integration is still pending."
+    />
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'stub-host' },
 })
