@@ -10,7 +10,7 @@
        routerLinkActive="active"
        [routerLinkActiveOptions]="linkOptions(item.route)"
        (click)="onNavClick()">
-      <app-icon [name]="item.icon"/>{{ item.label }}
+      <span class="material-symbols-outlined" aria-hidden="true">{{ item.symbol }}</span>{{ item.label }}
     </a>
   </nav>
 

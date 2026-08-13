@@ -1,7 +1,7 @@
 /* fuel-center selectors — VERBATIM from SOURCE_HTML */
 .fuel-center {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 247, 251, 0.96));
-  border-radius: 12px;
+  border-radius: 0;
   padding: 12px;
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@
 /* .fb-card font rules live in _typography.scss */
 .fb-card {
   background: linear-gradient(180deg, #ffffff 0%, #eef2f7 100%);
-  border-radius: 10px;
+  border-radius: 0;
   padding: 10px 12px;
   display: flex;
   justify-content: space-between;
@@ -73,7 +73,7 @@
 .filled-card {
   flex: 0 0 44%;
   background: linear-gradient(180deg, #ffffff 0%, #f2f4f8 100%);
-  border-radius: 10px;
+  border-radius: 0;
   padding: 10px 12px;
   display: flex;
   justify-content: space-between;
@@ -88,7 +88,7 @@
 }
 .consumed-card {
   flex: 1;
-  border-radius: 10px;
+  border-radius: 0;
   background:
     radial-gradient(circle at top right, rgba(255, 255, 255, 0.2), transparent 32%),
     linear-gradient(90deg, #0b2740 0%, #0d47a1 55%, #1273c4 100%);

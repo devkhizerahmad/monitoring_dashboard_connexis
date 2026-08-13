@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { IconComponent } from '../../shared/components/icon/icon.component';
 import { DashboardService } from '../../core/services/dashboard.service';
 import { ThemeService } from '../../core/services/theme.service';
 import { SIDEBAR, STORE_BADGES } from '../../features/dashboards/data/dashboard.mock';
@@ -13,7 +12,7 @@ import { SIDEBAR, STORE_BADGES } from '../../features/dashboards/data/dashboard.
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule, RouterModule, IconComponent],
+  imports: [CommonModule, RouterModule],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

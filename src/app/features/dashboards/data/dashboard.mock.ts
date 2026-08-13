@@ -31,12 +31,12 @@ export const IMAGES = {
 /* sidebar                                                             */
 /* ------------------------------------------------------------------ */
 export const NAV_ITEMS: NavItem[] = [
-  { icon: 'home', label: 'DASHBOARD', route: '/' },
-  { icon: 'report', label: 'REPORT', route: '/reports' },
-  { icon: 'bell', label: 'ALERMS', route: '/alarms' },
-  { icon: 'monitor', label: 'MONITORING', route: '/monitoring' },
-  { icon: 'bolt', label: 'OUTAGE', route: '/outage' },
-  { icon: 'help', label: 'HELP', route: '/help' },
+  { symbol: 'dashboard', label: 'DASHBOARD', route: '/' },
+  { symbol: 'description', label: 'REPORT', route: '/reports' },
+  { symbol: 'notifications', label: 'ALERMS', route: '/alarms' },
+  { symbol: 'monitor', label: 'MONITORING', route: '/monitoring' },
+  { symbol: 'bolt', label: 'OUTAGE', route: '/outage' },
+  { symbol: 'help', label: 'HELP', route: '/help' },
 ];
 
 export const SIDEBAR = {
