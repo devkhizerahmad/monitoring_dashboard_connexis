@@ -1,10 +1,9 @@
 /**
  * Sidebar navigation model.
  */
-import type { IconName } from './generator.model';
 
 export interface NavItem {
-  icon: IconName;
+  symbol: string;
   label: string;
   route: string;
 }

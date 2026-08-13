@@ -1,4 +1,4 @@
-/* content-grid selector — VERBATIM from SOURCE_HTML */
+﻿/* content-grid selector â€” VERBATIM from SOURCE_HTML */
 .content-grid {
   display: grid;
   grid-template-columns: 252px minmax(0, 1fr) 302px;
@@ -6,6 +6,7 @@
   align-items: stretch;
   flex: 1;
   min-width: 0;
+  background-color: var(--side);
 }
 
 /* Tablet/small laptop: collapse the three columns into one fluid stack. */
