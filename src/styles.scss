@@ -29,6 +29,15 @@ img {
 .icon-img {
   mix-blend-mode: multiply;
 }
+/* Desktop only: bake the 90% browser-zoom look into the default 100% zoom.
+   `zoom` reflows layout like real Ctrl+- (no gaps/overflow), and matches the
+   on-screen proportions users already preferred. Mobile keeps its tuned sizes. */
+@media (min-width: 1264px) {
+  html {
+    zoom: 0.9;
+  }
+}
+
 .app {
   display: flex;
   min-height: 100vh;
