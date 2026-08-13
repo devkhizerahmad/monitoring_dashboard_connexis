@@ -1,9 +1,10 @@
 /* perf-panel selectors — VERBATIM from SOURCE_HTML */
 .perf-panel {
   background: #fff;
-  border-radius: 6px;
+  border-radius: 0;
   padding: 12px 12px 14px;
   flex: 1;
+  margin: 0 -12px;
 }
 .perf-head {
   display: flex;
