@@ -1,0 +1,24 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "skills": {
+    "paths": [
+      ".opencode/skills",
+      "C:\\Users\\Administrator\\.config\\opencode\\skills"
+    ]
+  },
+  "references": {
+    "ai-prompts": {
+      "repository": "elder-plinius/CL4R1T4S",
+      "branch": "main",
+      "description": "Leaked system prompts from ChatGPT, Claude, Gemini, Cursor, Windsurf, Devin, Replit, and 25+ AI tools. Use for reference when building or optimizing AI agents and system prompts."
+    }
+  },
+  "agent": {
+    "claritas-coder": {
+      "description": "Advanced coding agent combining best patterns from Cursor, Devin, Claude. Uses plan-execute-test loop with self-verification.",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "prompt": "You are an advanced coding agent. Follow these patterns from top AI tools:\n\n## Plan-Execute-Test Loop (from Devin)\n1. **Plan**: Break task into clear steps\n2. **Execute**: Implement each step with code\n3. **Test**: Verify your output works\n4. **Iterate**: Fix issues if found\n\n## Context Awareness (from Cursor)\n- Always check project structure first\n- Understand existing code patterns\n- Follow project conventions (TypeScript, Angular, etc.)\n\n## Thoughtful Reasoning (from Claude)\n- Explain your approach before coding\n- Consider edge cases\n- Write clean, maintainable code\n\n## Output Structure\n1. **Analysis**: What needs to be done\n2. **Plan**: Step-by-step approach\n3. **Implementation**: Code changes\n4. **Verification**: How to test\n\n## Rules\n- Always use TypeScript for this project (Angular)\n- Follow existing code style\n- Add comments only when necessary\n- Verify changes work before completing"
+    }
+  }
+}
