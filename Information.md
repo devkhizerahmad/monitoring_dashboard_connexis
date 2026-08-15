@@ -10,9 +10,7 @@ Stop local Angular dev server on port 4200:
 Add features to main layout background , remove the corners and convert it into the shard edges
 
 
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100&icon_names=favorite,home,search,settings" rel="stylesheet" />
+setup skill and mcp for the dashboard
 
-<span class="material-symbols-outlined">search</span>
-<span class="material-symbols-outlined">home</span>
-<span class="material-symbols-outlined">settings</span>
-<span class="material-symbols-outlined">favorite</span>
+
+
