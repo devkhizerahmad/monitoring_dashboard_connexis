@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONNEXIS Dashboard - Architecture</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', system-ui, sans-serif; 
+            background: #0a0a0a; 
+            color: #e0e0e0; 
+            line-height: 1.6;
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
+        
+        h1 { 
+            font-size: 2.5rem; 
+            background: linear-gradient(135deg, #4A90D9, #9C27B0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .subtitle { color: #888; font-size: 1.1rem; margin-bottom: 40px; }
+        
+        h2 { 
+            font-size: 1.5rem; 
+            color: #4A90D9; 
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1E1E1E;
+        }
+        h3 { color: #9C27B0; margin: 20px 0 10px; }
+        
+        /* Cards */
+        .card {
+            background: #1E1E1E;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+            border: 1px solid #2a2a2a;
+        }
+        .card:hover { border-color: #4A90D9; }
+        
+        /* Grid */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        
+        /* Architecture Diagram */
+        .arch-diagram {
+            background: #121212;
+            border-radius: 16px;
+            padding: 30px;
+            font-family: 'Consolas', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            overflow-x: auto;
+            border: 1px solid #2a2a2a;
+        }
+        .arch-diagram .highlight { color: #4A90D9; font-weight: bold; }
+        .arch-diagram .component { color: #9C27B0; }
+        .arch-diagram .service { color: #4CAF50; }
+        .arch-diagram .model { color: #FF9800; }
+        
+        /* Component Tree */
+        .tree { padding-left: 20px; }
+        .tree-item {
+            position: relative;
+            padding: 8px 16px;
+            margin: 4px 0;
+            background: #1a1a1a;
+            border-radius: 8px;
+            border-left: 3px solid #4A90D9;
+        }
+        .tree-item.level-1 { border-left-color: #9C27B0; margin-left: 20px; }
+        .tree-item.level-2 { border-left-color: #4CAF50; margin-left: 40px; }
+        .tree-item.level-3 { border-left-color: #FF9800; margin-left: 60px; }
+        .tree-item .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-left: 8px;
+        }
+        .badge-full { background: #4CAF50; color: white; }
+        .badge-stub { background: #FF9800; color: white; }
+        .badge-service { background: #4A90D9; color: white; }
+        
+        /* Data Flow */
+        .flow-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 30px;
+        }
+        .flow-box {
+            background: #1a1a1a;
+            border: 2px solid #4A90D9;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            min-width: 150px;
+        }
+        .flow-box.mock { border-color: #FF9800; }
+        .flow-box.service { border-color: #4CAF50; }
+        .flow-box.component { border-color: #9C27B0; }
+        .flow-arrow { font-size: 24px; color: #4A90D9; }
+        
+        /* Table */
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th { background: #1a1a1a; color: #4A90D9; text-align: left; padding: 12px; }
+        td { padding: 12px; border-bottom: 1px solid #2a2a2a; }
+        tr:hover { background: #1a1a1a; }
+        
+        /* Status badges */
+        .status { padding: 4px 12px; border-radius: 20px; font-size: 12px; }
+        .status-full { background: #4CAF50; color: white; }
+        .status-stub { background: #FF9800; color: white; }
+        .status-planned { background: #666; color: white; }
+        
+        /* Color palette */
+        .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
+        .color-swatch {
+            height: 80px;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-end;
+            padding: 8px;
+            font-size: 12px;
+            font-family: monospace;
+        }
+        
+        /* Service box */
+        .service-box {
+            background: linear-gradient(135deg, #1a1a1a, #1E1E1E);
+            border: 1px solid #4CAF50;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .service-box h4 { color: #4CAF50; margin-bottom: 15px; }
+        .signal-list { list-style: none; }
+        .signal-list li { 
+            padding: 6px 0; 
+            border-bottom: 1px solid #2a2a2a;
+            font-family: monospace;
+            font-size: 13px;
+        }
+        .signal-list li:last-child { border-bottom: none; }
+        .signal-name { color: #4A90D9; }
+        
+        /* Responsive diagram */
+        .responsive-box {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .responsive-box h4 { color: #9C27B0; margin-bottom: 10px; }
+        .breakpoint { color: #FF9800; font-weight: bold; }
+        
+        /* Tech stack */
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+        .tech-item {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #2a2a2a;
+            transition: all 0.3s;
+        }
+        .tech-item:hover { border-color: #4A90D9; transform: translateY(-2px); }
+        .tech-item .icon { font-size: 2rem; margin-bottom: 10px; }
+        .tech-item .name { color: #4A90D9; font-weight: bold; }
+        .tech-item .version { color: #888; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <h1>CONNEXIS Dashboard</h1>
+        <p class="subtitle">Generator Monitoring Dashboard for Meezan Bank | Angular 22 + TypeScript 6</p>
+        
+        <!-- Tech Stack -->
+        <h2>🚀 Tech Stack</h2>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <div class="icon">🅰️</div>
+                <div class="name">Angular</div>
+                <div class="version">v22.1.0</div>
+            </div>
+            <div class="tech-item">
+                <div class="icon">📘</div>
+                <div class="name">TypeScript</div>
+                <div class="version">v6.0.2</div>
+            </div>
+            <div class="tech-item">
+                <div class="icon">🎨</div>
+                <div class="name">SCSS</div>
+                <div class="version">Latest</div>
+            </div>
+            <div class="tech-item">
+                <div class="icon">⚡</div>
+                <div class="name">Signals</div>
+                <div class="version">Reactive State</div>
+            </div>
+            <div class="tech-item">
+                <div class="icon">🧪</div>
+                <div class="name">Vitest</div>
+                <div class="version">v4.1.10</div>
+            </div>
+        </div>
+        
+        <!-- Architecture Overview -->
+        <h2>🏗️ Architecture Overview</h2>
+        <div class="arch-diagram">
+<pre>
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                           <span class="highlight">CONNEXIS DASHBOARD</span>                                  │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                 │
+│  ┌───────────────┐     ┌───────────────────────────────────────────────────┐   │
+│  │               │     │                                                   │   │
+│  │   <span class="component">SIDEBAR</span>     │     │                <span class="highlight">MAIN CONTENT</span>                   │   │
+│  │   (195px)     │     │                                                   │   │
+│  │               │     │  ┌─────────────────────────────────────────────┐ │   │
+│  │  ┌─────────┐  │     │  │              <span class="component">HEADER</span>                        │ │   │
+│  │  │  Logo   │  │     │  │    [☰] Toggle  │  Meezan Bank              │ │   │
+│  │  └─────────┘  │     │  └─────────────────────────────────────────────┘ │   │
+│  │               │     │                                                   │   │
+│  │  ┌─────────┐  │     │  ┌─────────────────────────────────────────────┐ │   │
+│  │  │   Nav   │  │     │  │            <span class="highlight">ROUTER OUTLET</span>                   │ │   │
+│  │  │  Items  │  │     │  │                                             │ │   │
+│  │  │         │  │     │  │  ┌───────────────────────────────────────┐ │ │   │
+│  │  │ 📊 Dash │  │     │  │  │                                       │ │ │   │
+│  │  │ 📋 Repo │  │     │  │  │       <span class="service">DASHBOARD PAGE</span>                │ │ │   │
+│  │  │ 🔔 Alar │  │     │  │  │                                       │ │ │   │
+│  │  │ 📡 Moni │  │     │  │  │  ┌─────────┬─────────┬─────────────┐ │ │ │   │
+│  │  │ ⚡ Outa │  │     │  │  │  │ <span class="model">Stats</span>  │ <span class="model">Fuel</span>   │  <span class="model">Metrics</span>   │ │ │ │   │
+│  │  │ ❓ Help │  │     │  │  │  │  Row    │ Break-  │   Right     │ │ │ │   │
+│  │  │         │  │     │  │  │  │         │ down    │             │ │ │ │   │
+│  │  └─────────┘  │     │  │  │  └─────────┴─────────┴─────────────┘ │ │ │   │
+│  │               │     │  │  │                                       │ │ │   │
+│  │  ┌─────────┐  │     │  │  └───────────────────────────────────────┘ │ │   │
+│  │  │ QR Code │  │     │  │                                             │ │   │
+│  │  │ + Store │  │     │  └─────────────────────────────────────────────┘ │   │
+│  │  └─────────┘  │     │                                                   │   │
+│  │               │     └───────────────────────────────────────────────────┘   │
+│  └───────────────┘                                                             │
+│                                                                                 │
+└─────────────────────────────────────────────────────────────────────────────────┘
+</pre>
+        </div>
+        
+        <!-- Component Hierarchy -->
+        <h2>🧩 Component Hierarchy</h2>
+        <div class="card">
+            <div class="tree">
+                <div class="tree-item"><strong>AppComponent</strong> <span class="badge badge-full">Root Shell</span></div>
+                
+                <div class="tree-item level-1">├── SidebarComponent <span class="badge badge-full">Layout</span></div>
+                <div class="tree-item level-2">├── Logo Image</div>
+                <div class="tree-item level-2">├── Navigation Links (routerLink)</div>
+                <div class="tree-item level-2">└── QR Code + Store Badges</div>
+                
+                <div class="tree-item level-1">└── MainLayoutComponent <span class="badge badge-full">Layout</span></div>
+                <div class="tree-item level-2">├── HeaderComponent <span class="badge badge-full">Layout</span></div>
+                <div class="tree-item level-3">├── Hamburger Button</div>
+                <div class="tree-item level-3">└── Bank Selector ("Meezan Bank")</div>
+                
+                <div class="tree-item level-2">└── [ROUTER OUTLET]</div>
+                <div class="tree-item level-3">└── DashboardComponent <span class="badge badge-full">Full</span></div>
+                <div class="tree-item level-3">├── StatsRowComponent</div>
+                <div class="tree-item level-3">│   └── 6x CardComponent</div>
+                <div class="tree-item level-3">├── GeneratorStatusComponent</div>
+                <div class="tree-item level-3">│   ├── Generator Image</div>
+                <div class="tree-item level-3">│   ├── 3x SelectComponent</div>
+                <div class="tree-item level-3">│   └── 3x Stat Rows</div>
+                <div class="tree-item level-3">├── FuelBreakdownComponent</div>
+                <div class="tree-item level-3">│   ├── 4x TankMetric Cards</div>
+                <div class="tree-item level-3">│   ├── Fuel Flow Cards</div>
+                <div class="tree-item level-3">│   └── PerformancePanelComponent</div>
+                <div class="tree-item level-3">│       ├── DonutChartComponent (Load)</div>
+                <div class="tree-item level-3">│       └── DonutChartComponent (Fuel)</div>
+                <div class="tree-item level-3">└── RightMetricsComponent</div>
+                <div class="tree-item level-3">    ├── 4x RunningMetric Cards</div>
+                <div class="tree-item level-3">    ├── Highlight Cards</div>
+                <div class="tree-item level-3">    ├── Usage Summary</div>
+                <div class="tree-item level-3">    └── Alert Section</div>
+                <div class="tree-item level-3">        ├── LatestAlertsComponent</div>
+                <div class="tree-item level-3">        └── AlertBadgesComponent</div>
+                <div class="tree-item level-3">            └── 4x BadgeComponent</div>
+            </div>
+        </div>
+        
+        <!-- Data Flow -->
+        <h2>🔄 Data Flow</h2>
+        <div class="card">
+            <div class="flow-container">
+                <div class="flow-box mock">
+                    <strong>dashboard.mock.ts</strong><br>
+                    <small>Single Source of Truth</small>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box service">
+                    <strong>DashboardService</strong><br>
+                    <small>Central Data Store (Signals)</small>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box component">
+                    <strong>Components</strong><br>
+                    <small>Stats, Fuel, Metrics, Alerts</small>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Services -->
+        <h2>🔌 Services</h2>
+        <div class="grid-2">
+            <div class="service-box">
+                <h4>📊 DashboardService</h4>
+                <ul class="signal-list">
+                    <li><span class="signal-name">navItems</span> → Sidebar navigation</li>
+                    <li><span class="signal-name">statCards</span> → Top 6 stat tiles</li>
+                    <li><span class="signal-name">genStats</span> → Generator details</li>
+                    <li><span class="signal-name">genGroups/Zones</span> → Dropdown options</li>
+                    <li><span class="signal-name">tankMetrics</span> → Fuel tank data</li>
+                    <li><span class="signal-name">fuelFlow</span> → Fuel flow data</li>
+                    <li><span class="signal-name">perfLoad/Fuel</span> → Donut charts</li>
+                    <li><span class="signal-name">runningMetrics</span> → Right column</li>
+                    <li><span class="signal-name">alerts</span> → Alert items</li>
+                    <li><span class="signal-name">alertBadges</span> → Badge counts</li>
+                </ul>
+            </div>
+            <div class="service-box">
+                <h4>🎨 ThemeService</h4>
+                <ul class="signal-list">
+                    <li><span class="signal-name">sidebarCollapsed</span> → Boolean signal</li>
+                    <li><span class="signal-name">toggle()</span> → Toggle sidebar</li>
+                    <li><span class="signal-name">collapse()</span> → Force close</li>
+                    <li><span class="signal-name">expand()</span> → Force open</li>
+                </ul>
+                <br>
+                <h4>🔔 AlertsService</h4>
+                <ul class="signal-list">
+                    <li><span class="signal-name">visible()</span> → Filtered alerts</li>
+                    <li><span class="signal-name">viewMoreLabel()</span> → Toggle text</li>
+                    <li><span class="signal-name">expanded</span> → State toggle</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Routes -->
+        <h2>🛤️ Routes</h2>
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Path</th>
+                        <th>Component</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/</code></td>
+                        <td>DashboardComponent</td>
+                        <td><span class="status status-full">✅ Full</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>/reports</code></td>
+                        <td>ReportsComponent</td>
+                        <td><span class="status status-stub">🔲 Placeholder</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>/alarms</code></td>
+                        <td>AlarmsComponent</td>
+                        <td><span class="status status-stub">🔲 Placeholder</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>/monitoring</code></td>
+                        <td>MonitoringComponent</td>
+                        <td><span class="status status-stub">🔲 Placeholder</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>/outage</code></td>
+                        <td>OutageComponent</td>
+                        <td><span class="status status-stub">🔲 Placeholder</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>/help</code></td>
+                        <td>HelpComponent</td>
+                        <td><span class="status status-stub">🔲 Placeholder</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Design Tokens -->
+        <h2>🎨 Color Tokens</h2>
+        <div class="card">
+            <div class="color-grid">
+                <div class="color-swatch" style="background: #121212; border: 1px solid #333;">--dark<br>#121212</div>
+                <div class="color-swatch" style="background: #1E1E1E; border: 1px solid #333;">--card<br>#1E1E1E</div>
+                <div class="color-swatch" style="background: #1A1A1A; border: 1px solid #333;">--side<br>#1A1A1A</div>
+                <div class="color-swatch" style="background: #4A90D9;">--blue<br>#4A90D9</div>
+                <div class="color-swatch" style="background: #4CAF50;">--green<br>#4CAF50</div>
+                <div class="color-swatch" style="background: #F44336;">--red<br>#F44336</div>
+                <div class="color-swatch" style="background: #FFC107; color: #000;">--yellow<br>#FFC107</div>
+                <div class="color-swatch" style="background: #FF9800;">--orange<br>#FF9800</div>
+                <div class="color-swatch" style="background: #9C27B0;">--purple<br>#9C27B0</div>
+                <div class="color-swatch" style="background: #9E9E9E; color: #000;">--gray<br>#9E9E9E</div>
+            </div>
+        </div>
+        
+        <!-- Responsive Breakpoints -->
+        <h2>📱 Responsive Breakpoints</h2>
+        <div class="grid-3">
+            <div class="responsive-box">
+                <h4>🖥️ Desktop</h4>
+                <p class="breakpoint">≥ 1264px</p>
+                <ul>
+                    <li>Full sidebar (195px)</li>
+                    <li>3-column dashboard grid</li>
+                    <li>Body zoom: 0.9</li>
+                </ul>
+            </div>
+            <div class="responsive-box">
+                <h4>📱 Tablet</h4>
+                <p class="breakpoint">&lt; 1264px</p>
+                <ul>
+                    <li>Sidebar collapses</li>
+                    <li>Off-canvas drawer</li>
+                    <li>Single column stack</li>
+                </ul>
+            </div>
+            <div class="responsive-box">
+                <h4>📲 Mobile</h4>
+                <p class="breakpoint">&lt; 640px</p>
+                <ul>
+                    <li>Logo only header</li>
+                    <li>Stats stack full-width</li>
+                    <li>Fuel grids single column</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Shared Components -->
+        <h2>🧱 Shared Components</h2>
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Selector</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>CardComponent</strong></td>
+                        <td><code>&lt;app-card&gt;</code></td>
+                        <td>Polymorphic card wrapper (stat/metric/fb/highlight)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>BadgeComponent</strong></td>
+                        <td><code>&lt;app-badge&gt;</code></td>
+                        <td>Circular count badge (critical/minor/normal/upcoming)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DonutChartComponent</strong></td>
+                        <td><code>&lt;app-donut-chart&gt;</code></td>
+                        <td>CSS conic-gradient donut chart</td>
+                    </tr>
+                    <tr>
+                        <td><strong>IconComponent</strong></td>
+                        <td><code>&lt;app-icon&gt;</code></td>
+                        <td>Inline SVG icon (28 icons)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SelectComponent</strong></td>
+                        <td><code>&lt;app-select&gt;</code></td>
+                        <td>Styled native dropdown with ControlValueAccessor</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FeaturePlaceholder</strong></td>
+                        <td><code>&lt;app-feature-placeholder&gt;</code></td>
+                        <td>Coming soon placeholder page</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Key Patterns -->
+        <h2>⚡ Key Patterns</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>🏗️ Architecture</h3>
+                <ul>
+                    <li><strong>Standalone Components</strong> - No NgModules</li>
+                    <li><strong>Signals-based State</strong> - signal(), computed()</li>
+                    <li><strong>OnPush Change Detection</strong> - Every component</li>
+                    <li><strong>ViewEncapsulation.None</strong> - Global styles</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>🚀 Performance</h3>
+                <ul>
+                    <li><strong>Lazy Loading</strong> - All feature routes</li>
+                    <li><strong>Mock-First</strong> - Ready for API swap</li>
+                    <li><strong>Content Projection</strong> - ng-content</li>
+                    <li><strong>Stub Infrastructure</strong> - Guards, Interceptors</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Models -->
+        <h2>📋 Models</h2>
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model File</th>
+                        <th>Types</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>alert.model.ts</code></td>
+                        <td>AlertSeverity, AlertItem, AlertBadge</td>
+                        <td>Alert list items and count badges</td>
+                    </tr>
+                    <tr>
+                        <td><code>fuel.model.ts</code></td>
+                        <td>TankMetric, FuelFlow, DonutSegment</td>
+                        <td>Fuel tank stats and donut chart data</td>
+                    </tr>
+                    <tr>
+                        <td><code>generator.model.ts</code></td>
+                        <td>GeneratorStatus, StatCard, GenStat</td>
+                        <td>Generator status and stat cards</td>
+                    </tr>
+                    <tr>
+                        <td><code>metric.model.ts</code></td>
+                        <td>RunningMetric, HighlightCard, Weather</td>
+                        <td>Right-column metrics and highlights</td>
+                    </tr>
+                    <tr>
+                        <td><code>nav-item.model.ts</code></td>
+                        <td>NavItem, StoreBadge</td>
+                        <td>Sidebar navigation items</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 60px; padding: 20px; color: #666;">
+            <p>Generated by OpenCode AI Agent | Connexis Dashboard v1.0</p>
+        </div>
+    </div>
+</body>
+</html>
