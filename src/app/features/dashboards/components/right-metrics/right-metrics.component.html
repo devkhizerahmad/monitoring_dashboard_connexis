@@ -1,14 +1,14 @@
 <div class="right-col">
   <div class="metrics-grid">
     <app-card variant="metric" *ngFor="let metric of runningMetrics()">
-      <span class="m-ic" [ngClass]="metric.iconClass" [style]="metric.iconStyle">
+      <span class="m-ic" [ngClass]="metric.iconClass" [ngStyle]="metric.iconStyle">
         <span class="lahore-tag" *ngIf="metric.tag">{{ metric.tag }}</span>
         <app-icon [name]="metric.icon"/>
       </span>
       <div>
         <small [class.t]="true">{{ metric.small }}</small>
         <span class="sub2" *ngIf="metric.sub2">{{ metric.sub2 }}</span>
-        <b [class.red]="metric.valueClass === 'red'" [style]="metric.valueStyle">{{ metric.value }}</b>
+        <b [class.red]="metric.valueClass === 'red'" [ngStyle]="metric.valueStyle">{{ metric.value }}</b>
       </div>
     </app-card>
   </div>

@@ -33,7 +33,7 @@ export const IMAGES = {
 export const NAV_ITEMS: NavItem[] = [
   { symbol: 'home', label: 'DASHBOARD', route: '/' },
   { symbol: 'report', label: 'REPORT', route: '/reports' },
-  { symbol: 'bell', label: 'ALERMS', route: '/alarms' },
+  { symbol: 'bell', label: 'ALARMS', route: '/alarms' },
   { symbol: 'monitor', label: 'MONITORING', route: '/monitoring' },
   { symbol: 'bolt', label: 'OUTAGE', route: '/outage' },
   { symbol: 'help', label: 'HELP', route: '/help' },
@@ -76,7 +76,7 @@ export const ON_PILL_LABEL = 'ON';
 export const FUEL_CENTER_TITLE = 'FUEL BREAKDOWN PER- LITRE';
 
 export const PERF_TITLE = 'Generator Performance Over 1 Week';
-export const PERF_DOTS = '...';
+export const PERF_DOTS = '\u2022\u2022\u2022';
 
 export const ALERTS_TITLE = 'LATEST ALERTS';
 
@@ -201,7 +201,7 @@ export const FUEL_FLOW_CONSUMED: FuelFlow = {
 };
 
 /* ------------------------------------------------------------------ */
-/* performance panel â€” donut charts                                  */
+/* performance panel — donut charts                                    */
 /* ------------------------------------------------------------------ */
 export const PERF_LOAD: PerformanceChart = {
   variant: 'd1',
@@ -242,19 +242,19 @@ export const RUNNING_METRICS: RunningMetric[] = [
     iconClass: 'dark',
     small: 'Ambient Temperature',
     value: '- - - - -',
-    valueStyle: 'color:#333',
+    valueStyle: { color: '#333' },
   },
   {
     icon: 'bolt-fill',
-    iconStyle: 'background:#111;border-radius:50%',
+    iconStyle: { background: '#111', 'border-radius': '50%' },
     small: 'Average Load Factor',
     value: '0.342',
-    valueStyle: 'color:#222',
+    valueStyle: { color: '#222' },
   },
   {
     icon: 'cloud',
     iconClass: 'dark',
-    iconStyle: 'position:relative;flex-direction:column',
+    iconStyle: { position: 'relative', 'flex-direction': 'column' },
     tag: 'LAHORE',
     small: 'Weather',
     sub2: 'Updated 5 min ago',

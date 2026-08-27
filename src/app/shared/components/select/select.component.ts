@@ -28,6 +28,7 @@ export class SelectComponent implements ControlValueAccessor {
   readonly big = input(false);
 
   innerValue = '';
+  isDisabled = false;
 
   private onChange: (value: unknown) => void = () => void 0;
   private onTouched: () => void = () => void 0;
@@ -44,8 +45,8 @@ export class SelectComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  setDisabledState?(_isDisabled: boolean): void {
-    /* native select keeps its own disabled state */
+  setDisabledState(isDisabled: boolean): void {
+    this.isDisabled = isDisabled;
   }
 
   onSelect(value: string): void {

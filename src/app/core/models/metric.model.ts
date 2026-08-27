@@ -7,13 +7,13 @@ import type { DonutPercent, DonutSegment } from './fuel.model';
 export interface RunningMetric {
   icon: IconName;
   iconClass?: 'dark' | 'plain';
-  iconStyle?: string;
+  iconStyle?: Record<string, string>;
   tag?: string;
   small: string;
   sub2?: string;
   value: string;
   valueClass?: 'red';
-  valueStyle?: string;
+  valueStyle?: Record<string, string>;
 }
 
 export interface HighlightCard {

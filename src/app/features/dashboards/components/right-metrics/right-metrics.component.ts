@@ -36,6 +36,6 @@ export class RightMetricsComponent {
     const hour = +hh;
     const ampm = hour >= 12 ? 'PM' : 'AM';
     const h12 = hour % 12 === 0 ? 12 : hour % 12;
-    return `${d} ${months[+mo - 1]} ${y} \u00b7 ${h12}:${mm} ${ampm}`;
+    return `${d} ${months[+mo - 1]} ${y} \u00b7 ${h12}:${mm.padStart(2, '0')} ${ampm}`;
   }
 }
