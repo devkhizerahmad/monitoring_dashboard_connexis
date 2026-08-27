@@ -9,14 +9,18 @@
   padding: 4px 0;
 }
 
-/* Mobile: badges lay out horizontally with equal spacing across the row. */
+/* Mobile: badges spread horizontally with equal space */
 @media (max-width: 559.98px) {
   .badges-col {
     width: 100%;
-    flex: 1 1 100%;
+    flex: 1 1 auto;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 4px 0;
+    justify-content: space-around;
+    gap: 12px;
+    padding: 8px 4px;
+  }
+  .badges-col app-badge {
+    flex: 1 1 0;
+    max-width: 80px;
   }
 }
