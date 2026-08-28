@@ -1,0 +1,338 @@
+{
+  "communities": {
+    "0": [
+      "app_core_models_alert_model_alertitem",
+      "app_core_models_fuel_model",
+      "app_core_models_fuel_model_donutpercent",
+      "app_core_models_fuel_model_donutsegment",
+      "app_core_models_fuel_model_fuelflow",
+      "app_core_models_fuel_model_tankmetric",
+      "app_core_models_generator_model",
+      "app_core_models_generator_model_generatorstatus",
+      "app_core_models_generator_model_genstat",
+      "app_core_models_generator_model_iconname",
+      "app_core_models_generator_model_statcard",
+      "app_core_models_generator_model_staticon",
+      "app_core_models_metric_model",
+      "app_core_models_metric_model_highlightcard",
+      "app_core_models_metric_model_performancechart",
+      "app_core_models_metric_model_runningmetric",
+      "app_core_models_metric_model_usagesummary",
+      "app_core_models_metric_model_weather",
+      "app_core_models_nav_item_model",
+      "app_core_models_nav_item_model_navitem",
+      "app_core_models_nav_item_model_storebadge",
+      "app_core_services_dashboard_service",
+      "app_features_dashboards_data_dashboard_mock",
+      "app_features_dashboards_data_dashboard_mock_alert_badges",
+      "app_features_dashboards_data_dashboard_mock_alert_items",
+      "app_features_dashboards_data_dashboard_mock_fuel_flow_consumed",
+      "app_features_dashboards_data_dashboard_mock_fuel_flow_filled",
+      "app_features_dashboards_data_dashboard_mock_gen_groups",
+      "app_features_dashboards_data_dashboard_mock_gen_stats",
+      "app_features_dashboards_data_dashboard_mock_gen_units",
+      "app_features_dashboards_data_dashboard_mock_gen_zones",
+      "app_features_dashboards_data_dashboard_mock_highlight_cards",
+      "app_features_dashboards_data_dashboard_mock_highlights_head",
+      "app_features_dashboards_data_dashboard_mock_images",
+      "app_features_dashboards_data_dashboard_mock_nav_items",
+      "app_features_dashboards_data_dashboard_mock_perf_fuel",
+      "app_features_dashboards_data_dashboard_mock_perf_load",
+      "app_features_dashboards_data_dashboard_mock_running_metrics",
+      "app_features_dashboards_data_dashboard_mock_stat_cards",
+      "app_features_dashboards_data_dashboard_mock_tank_metrics",
+      "app_features_dashboards_data_dashboard_mock_usage_summary",
+      "app_shared_components_chart_donut_chart_component"
+    ],
+    "1": [
+      "app_core_services_dashboard_service_dashboardservice",
+      "app_core_services_dashboard_service_ts_injectable",
+      "app_features_dashboards_components_alert_badges_alert_badges_component_alertbadgescomponent",
+      "app_features_dashboards_components_alert_badges_alert_badges_component_ts_component",
+      "app_features_dashboards_components_fuel_breakdown_fuel_breakdown_component",
+      "app_features_dashboards_components_fuel_breakdown_fuel_breakdown_component_fuelbreakdowncomponent",
+      "app_features_dashboards_components_fuel_breakdown_fuel_breakdown_component_ts_component",
+      "app_features_dashboards_components_performance_panel_performance_panel_component",
+      "app_features_dashboards_components_performance_panel_performance_panel_component_performancepanelcomponent",
+      "app_features_dashboards_components_performance_panel_performance_panel_component_ts_component",
+      "app_features_dashboards_components_right_metrics_right_metrics_component",
+      "app_features_dashboards_components_right_metrics_right_metrics_component_rightmetricscomponent",
+      "app_features_dashboards_components_right_metrics_right_metrics_component_rightmetricscomponent_fmtdate",
+      "app_features_dashboards_components_right_metrics_right_metrics_component_ts_component",
+      "app_features_dashboards_components_stats_row_stats_row_component",
+      "app_features_dashboards_components_stats_row_stats_row_component_statsrowcomponent",
+      "app_features_dashboards_components_stats_row_stats_row_component_ts_component",
+      "app_features_dashboards_dashboard_component",
+      "app_features_dashboards_dashboard_component_dashboardcomponent",
+      "app_features_dashboards_dashboard_component_ts_component",
+      "app_features_dashboards_data_dashboard_mock_fuel_center_title",
+      "app_features_dashboards_data_dashboard_mock_perf_dots",
+      "app_features_dashboards_data_dashboard_mock_perf_title",
+      "app_shared_components_card_card_component",
+      "app_shared_components_card_card_component_cardcomponent",
+      "app_shared_components_card_card_component_cardvariant",
+      "app_shared_components_card_card_component_ts_component",
+      "app_shared_components_chart_donut_chart_component_donutchartcomponent",
+      "app_shared_components_chart_donut_chart_component_ts_component"
+    ],
+    "2": [
+      "app_app_routes",
+      "app_features_alarms_alarms_component",
+      "app_features_alarms_alarms_component_alarmscomponent",
+      "app_features_alarms_alarms_component_ts_component",
+      "app_features_help_help_component",
+      "app_features_help_help_component_helpcomponent",
+      "app_features_help_help_component_ts_component",
+      "app_features_monitoring_monitoring_component",
+      "app_features_monitoring_monitoring_component_monitoringcomponent",
+      "app_features_monitoring_monitoring_component_ts_component",
+      "app_features_outage_outage_component",
+      "app_features_outage_outage_component_outagecomponent",
+      "app_features_outage_outage_component_ts_component",
+      "app_features_reports_reports_component",
+      "app_features_reports_reports_component_reportscomponent",
+      "app_features_reports_reports_component_ts_component",
+      "app_layout_main_layout_main_layout_component",
+      "app_layout_main_layout_main_layout_component_mainlayoutcomponent",
+      "app_layout_main_layout_main_layout_component_ts_component",
+      "app_shared_components_feature_placeholder_feature_placeholder_component",
+      "app_shared_components_feature_placeholder_feature_placeholder_component_featureplaceholdercomponent",
+      "app_shared_components_feature_placeholder_feature_placeholder_component_ts_component"
+    ],
+    "3": [
+      "app_core_services_theme_service",
+      "app_core_services_theme_service_themeservice",
+      "app_core_services_theme_service_themeservice_collapse",
+      "app_core_services_theme_service_themeservice_expand",
+      "app_core_services_theme_service_themeservice_toggle",
+      "app_core_services_theme_service_ts_injectable",
+      "app_features_dashboards_data_dashboard_mock_bank",
+      "app_features_dashboards_data_dashboard_mock_sidebar",
+      "app_features_dashboards_data_dashboard_mock_store_badges",
+      "app_layout_header_header_component",
+      "app_layout_header_header_component_headercomponent",
+      "app_layout_header_header_component_headercomponent_ontoggle",
+      "app_layout_header_header_component_ts_component",
+      "app_layout_sidebar_sidebar_component",
+      "app_shared_components_icon_icon_component",
+      "app_shared_components_icon_icon_component_icon_registry",
+      "app_shared_components_icon_icon_component_iconcomponent",
+      "app_shared_components_icon_icon_component_ts_component"
+    ],
+    "4": [
+      "app_app_component",
+      "app_app_component_appcomponent",
+      "app_app_component_appcomponent_constructor",
+      "app_app_component_appcomponent_onscrim",
+      "app_app_component_ts_component",
+      "app_app_config",
+      "app_app_config_appconfig",
+      "app_app_routes_routes",
+      "app_app_spec",
+      "app_core_interceptors_http_error_interceptor",
+      "app_core_interceptors_http_error_interceptor_httperrorinterceptor",
+      "app_layout_sidebar_sidebar_component_sidebarcomponent",
+      "app_layout_sidebar_sidebar_component_sidebarcomponent_linkoptions",
+      "app_layout_sidebar_sidebar_component_sidebarcomponent_onnavclick",
+      "app_layout_sidebar_sidebar_component_ts_component",
+      "index",
+      "main"
+    ],
+    "5": [
+      "app_features_dashboards_components_generator_status_generator_status_component",
+      "app_features_dashboards_components_generator_status_generator_status_component_generatorstatuscomponent",
+      "app_features_dashboards_components_generator_status_generator_status_component_ts_component",
+      "app_features_dashboards_data_dashboard_mock_on_pill_label",
+      "app_features_dashboards_data_dashboard_mock_status_panel_title",
+      "app_shared_components_select_select_component",
+      "app_shared_components_select_select_component_selectcomponent",
+      "app_shared_components_select_select_component_selectcomponent_onchange",
+      "app_shared_components_select_select_component_selectcomponent_onselect",
+      "app_shared_components_select_select_component_selectcomponent_ontouched",
+      "app_shared_components_select_select_component_selectcomponent_registeronchange",
+      "app_shared_components_select_select_component_selectcomponent_registerontouched",
+      "app_shared_components_select_select_component_selectcomponent_setdisabledstate",
+      "app_shared_components_select_select_component_selectcomponent_writevalue",
+      "app_shared_components_select_select_component_ts_component"
+    ],
+    "6": [
+      "app_core_models_alert_model",
+      "app_core_models_alert_model_alertbadge",
+      "app_core_models_alert_model_alertseverity",
+      "app_core_models_alert_model_alertvariant",
+      "app_features_dashboards_components_alert_badges_alert_badges_component",
+      "app_shared_components_badge_badge_component",
+      "app_shared_components_badge_badge_component_badgecomponent",
+      "app_shared_components_badge_badge_component_ts_component"
+    ],
+    "7": [
+      "app_core_services_alerts_service",
+      "app_core_services_alerts_service_alertsservice",
+      "app_core_services_alerts_service_alertsservice_togglemore",
+      "app_core_services_alerts_service_ts_injectable",
+      "app_features_dashboards_components_latest_alerts_latest_alerts_component",
+      "app_features_dashboards_components_latest_alerts_latest_alerts_component_latestalertscomponent",
+      "app_features_dashboards_components_latest_alerts_latest_alerts_component_ts_component",
+      "app_features_dashboards_data_dashboard_mock_alerts_title"
+    ],
+    "8": [
+      "app_shared_components_qr_code_qr_code_component",
+      "app_shared_components_qr_code_qr_code_component_qrcodecomponent",
+      "app_shared_components_qr_code_qr_code_component_qrcodecomponent_ngafterviewinit",
+      "app_shared_components_qr_code_qr_code_component_qrcodecomponent_ngafterviewinit_finder",
+      "app_shared_components_qr_code_qr_code_component_qrcodecomponent_ngafterviewinit_mulberry32",
+      "app_shared_components_qr_code_qr_code_component_ts_component",
+      "viewchild"
+    ],
+    "9": [
+      "app_core_guards_auth_guard",
+      "app_core_guards_auth_guard_authguard",
+      "app_core_guards_auth_guard_authguard_canactivate",
+      "app_core_guards_auth_guard_ts_injectable"
+    ],
+    "10": [
+      "app_shared_pipes_kva_pipe",
+      "app_shared_pipes_kva_pipe_kvapipe",
+      "app_shared_pipes_kva_pipe_kvapipe_transform",
+      "pipe"
+    ],
+    "11": [
+      "app_features_auth_auth_component",
+      "app_features_auth_auth_component_authcomponent",
+      "app_features_auth_auth_component_ts_component"
+    ],
+    "12": [
+      "app_shared_directives_click_outside_directive",
+      "app_shared_directives_click_outside_directive_clickoutsidedirective",
+      "directive"
+    ]
+  },
+  "cohesion": {
+    "0": 0.11498257839721254,
+    "1": 0.09852216748768473,
+    "2": 0.1341991341991342,
+    "3": 0.1437908496732026,
+    "4": 0.14705882352941177,
+    "5": 0.1619047619047619,
+    "6": 0.32142857142857145,
+    "7": 0.2857142857142857,
+    "8": 0.2857142857142857,
+    "9": 0.5,
+    "10": 0.5,
+    "11": 0.6666666666666666,
+    "12": 0.6666666666666666
+  },
+  "gods": [
+    {
+      "id": "app_features_dashboards_components_right_metrics_right_metrics_component",
+      "label": "Right Metrics Component",
+      "degree": 12
+    },
+    {
+      "id": "app_features_dashboards_components_generator_status_generator_status_component",
+      "label": "Generator Status Component",
+      "degree": 11
+    },
+    {
+      "id": "app_layout_sidebar_sidebar_component",
+      "label": "Sidebar Component",
+      "degree": 11
+    },
+    {
+      "id": "app_core_services_dashboard_service_dashboardservice",
+      "label": "DashboardService",
+      "degree": 10
+    },
+    {
+      "id": "app_features_dashboards_components_fuel_breakdown_fuel_breakdown_component",
+      "label": "Fuel Breakdown Component",
+      "degree": 10
+    },
+    {
+      "id": "app_features_dashboards_dashboard_component",
+      "label": "Dashboard Component",
+      "degree": 10
+    },
+    {
+      "id": "app_shared_components_select_select_component_selectcomponent",
+      "label": "SelectComponent",
+      "degree": 10
+    },
+    {
+      "id": "app_features_dashboards_components_performance_panel_performance_panel_component",
+      "label": "Performance Panel Component",
+      "degree": 9
+    },
+    {
+      "id": "app_app_component",
+      "label": "App Component",
+      "degree": 8
+    },
+    {
+      "id": "app_core_services_theme_service_themeservice",
+      "label": "ThemeService",
+      "degree": 8
+    }
+  ],
+  "surprises": [
+    {
+      "source": "Index HTML",
+      "target": "App Component",
+      "source_files": [
+        "index.html",
+        "app/app.component.html"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; peripheral node `Index HTML` unexpectedly reaches hub `App Component`"
+    },
+    {
+      "source": "PerformanceChart",
+      "target": "DonutSegment",
+      "source_files": [
+        "app/core/models/metric.model.ts",
+        "app/core/models/fuel.model.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "PerformanceChart",
+      "target": "DonutPercent",
+      "source_files": [
+        "app/core/models/metric.model.ts",
+        "app/core/models/fuel.model.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "HighlightCard",
+      "target": "IconName",
+      "source_files": [
+        "app/core/models/metric.model.ts",
+        "app/core/models/generator.model.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "RunningMetric",
+      "target": "IconName",
+      "source_files": [
+        "app/core/models/metric.model.ts",
+        "app/core/models/generator.model.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    }
+  ],
+  "tokens": {
+    "input": 6094,
+    "output": 3237
+  }
+}
