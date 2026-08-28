@@ -1,0 +1,1 @@
+{"nodes": [{"id": "index", "label": "Index HTML", "file_type": "code", "source_file": "index.html", "rationale": "Entry point of the application containing the app-root."}], "edges": [{"source": "index", "target": "app_app_component", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "index.html"}], "hyperedges": []}
