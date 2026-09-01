@@ -1,15 +1,22 @@
-import { ChangeDetectionStrategy, Component, inject, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+  ViewEncapsulation,
+} from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { IconComponent } from '../../shared/components/icon/icon.component';
 import { ThemeService } from '../../core/services/theme.service';
-import { BANK } from '../../features/dashboards/data/dashboard.mock';
+import { BANKS } from '../../features/dashboards/data/dashboard.mock';
 
 /**
- * White topbar: hamburger (sidebar toggle) + bank selector.
+ * White topbar: hamburger (sidebar toggle) + bank/company selector dropdown.
  */
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [IconComponent],
+  imports: [CommonModule, IconComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,9 +26,26 @@ import { BANK } from '../../features/dashboards/data/dashboard.mock';
 export class HeaderComponent {
   private theme = inject(ThemeService);
 
-  bank = BANK;
+  banks = BANKS;
+  selected = signal(BANKS[0]);
+  open = signal(false);
 
   onToggle(): void {
     this.theme.toggle();
+  }
+
+  toggleDropdown(event: MouseEvent): void {
+    event.stopPropagation();
+    this.open.update((v) => !v);
+  }
+
+  selectBank(bank: (typeof BANKS)[number], event: MouseEvent): void {
+    event.stopPropagation();
+    this.selected.set(bank);
+    this.open.set(false);
+  }
+
+  onDocumentClick(): void {
+    this.open.set(false);
   }
 }

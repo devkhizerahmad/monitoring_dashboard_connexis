@@ -1,10 +1,38 @@
-<header class="topbar">
+<header class="topbar" (document:click)="onDocumentClick()">
   <button class="hamburger" type="button" aria-label="Toggle sidebar" (click)="onToggle()">
     <span></span><span></span><span></span>
   </button>
-  <div class="bank-select" role="img" [attr.aria-label]="bank.name + ', ' + bank.tagline">
-    <app-icon name="bank-logo"/>
-    <span class="b-txt"><b>{{ bank.name }}</b><i>{{ bank.tagline }}</i></span>
-    <app-icon name="chevron" aria-hidden="true"/>
+
+  <div class="bank-wrap">
+    <button
+      class="bank-select"
+      type="button"
+      role="button"
+      [attr.aria-expanded]="open()"
+      aria-haspopup="listbox"
+      [attr.aria-label]="selected().name + ', ' + selected().tagline"
+      (click)="toggleDropdown($event)"
+    >
+      <span class="b-logo" [style.background]="selected().accent">{{ selected().initials }}</span>
+      <span class="b-txt"><b>{{ selected().name }}</b><i>{{ selected().tagline }}</i></span>
+      <app-icon name="chevron" aria-hidden="true"/>
+    </button>
+
+    <ul class="bank-menu" *ngIf="open()" role="listbox" [attr.aria-label]="'Select company'">
+      <li *ngFor="let bank of banks">
+        <button
+          class="bank-option"
+          type="button"
+          role="option"
+          [attr.aria-selected]="bank.name === selected().name"
+          [class.active]="bank.name === selected().name"
+          (click)="selectBank(bank, $event)"
+        >
+          <span class="b-logo" [style.background]="bank.accent">{{ bank.initials }}</span>
+          <span class="o-txt"><b>{{ bank.name }}</b><i>{{ bank.tagline }}</i></span>
+          <app-icon *ngIf="bank.name === selected().name" name="chevron" aria-hidden="true"/>
+        </button>
+      </li>
+    </ul>
   </div>
 </header>
