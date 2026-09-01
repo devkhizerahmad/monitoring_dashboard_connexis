@@ -3,6 +3,7 @@
  * Typed by core/models. No component ever hard-codes a display string.
  */
 import type { NavItem, StoreBadge } from '../../../core/models/nav-item.model';
+import type { Bank } from '../../../core/models/bank.model';
 import type { StatCard, GenStat } from '../../../core/models/generator.model';
 import type { TankMetric, FuelFlow, DonutSegment, DonutPercent } from '../../../core/models/fuel.model';
 import type {
@@ -63,10 +64,41 @@ export const STORE_BADGES: StoreBadge[] = [
 /* ------------------------------------------------------------------ */
 /* topbar                                                              */
 /* ------------------------------------------------------------------ */
-export const BANK = {
-  name: 'Meezan Bank',
-  tagline: 'The Premier Islamic Bank',
-} as const;
+export const BANKS: Bank[] = [
+  {
+    name: 'Meezan Bank',
+    tagline: 'The Premier Islamic Bank',
+    accent: '#7b1fa2',
+    initials: 'MB',
+  },
+  {
+    name: 'HBL Bank',
+    tagline: 'HBL — Bank of the Year',
+    accent: '#0d47a1',
+    initials: 'HBL',
+  },
+  {
+    name: 'UBL Bank',
+    tagline: 'Where You Come First',
+    accent: '#0288d1',
+    initials: 'UBL',
+  },
+  {
+    name: 'MCB Bank',
+    tagline: 'The Future of Banking',
+    accent: '#2e7d32',
+    initials: 'MCB',
+  },
+  {
+    name: 'Bank Alfalah',
+    tagline: 'A Vision of Excellence',
+    accent: '#c62828',
+    initials: 'BA',
+  },
+];
+
+/** Default selected bank (kept for any consumer that wants the single value). */
+export const BANK = BANKS[0];
 
 /* ------------------------------------------------------------------ */
 /* panel headings                                                      */
