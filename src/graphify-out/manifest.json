@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "app/core/models/nav-item.model.ts": {
-    "mtime": 1787143334.9617977,
-    "seen": 1787931949.364059,
+    "mtime": 1788268727.9093406,
+    "seen": 1788269700.367038,
     "ast_hash": "6823cb3f82f5f8cb2157feb6dfaf8102",
     "semantic_hash": ""
   },
@@ -144,8 +144,8 @@
     "semantic_hash": ""
   },
   "app/features/dashboards/data/dashboard.mock.ts": {
-    "mtime": 1787835320.2549446,
-    "seen": 1787931949.364059,
+    "mtime": 1788269690.5029423,
+    "seen": 1788269700.367038,
     "ast_hash": "baa14db5fb82ed63ec0b7c856d62fff7",
     "semantic_hash": ""
   },
@@ -174,9 +174,9 @@
     "semantic_hash": ""
   },
   "app/layout/header/header.component.ts": {
-    "mtime": 1786361514.2229252,
-    "seen": 1787931949.364059,
-    "ast_hash": "7086450cb0bbde7020c3eff9e01d3d35",
+    "mtime": 1788269690.5179682,
+    "seen": 1788269700.367038,
+    "ast_hash": "5da9459b84a9427fd3829f61fa154325",
     "semantic_hash": ""
   },
   "app/layout/main-layout/main-layout.component.ts": {
@@ -306,8 +306,8 @@
     "semantic_hash": ""
   },
   "app/layout/header/header.component.html": {
-    "mtime": 1786541337.6919737,
-    "seen": 1787931949.364059,
+    "mtime": 1788269690.5169713,
+    "seen": 1788269700.3680353,
     "ast_hash": "454d245d856710c1fa16eedb47395e45",
     "semantic_hash": ""
   },
