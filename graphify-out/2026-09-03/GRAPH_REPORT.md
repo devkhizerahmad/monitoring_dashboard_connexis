@@ -1,16 +1,16 @@
 # Graph Report - Connexis_dashboard  (2026-09-03)
 
 ## Corpus Check
-- 225 files · ~852,132 words
+- 225 files · ~852,134 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2823 nodes · 4372 edges · 250 communities (217 shown, 33 thin omitted)
+- 2827 nodes · 4375 edges · 248 communities (215 shown, 33 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 40 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `133ecd1d`
+- Built from commit: `6cbb2d5c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,7 +19,7 @@
 - Fuel Breakdown Component
 - Main Layout Component
 - Header Component
-- app.component.ts
+- metric.model.ts
 - Generator Status Component
 - Alert Badges Component
 - Latest Alerts Component
@@ -52,7 +52,7 @@
 - layout-rules.test.mjs
 - What You Must Do When Invoked
 - required
-- right-metrics.component.ts
+- fuel-breakdown.component.ts
 - app.routes.ts
 - scenarios.mjs
 - sidebar.component.ts
@@ -97,8 +97,8 @@
 - legendEntry
 - degraded.test.mjs
 - readme-showcase.test.mjs
-- preview.mjs
 - startPreview
+- legend.mjs
 - Viewer Runtime reference
 - properties
 - enum
@@ -122,7 +122,7 @@
 - angular.json
 - build
 - open-artifact.mjs
-- beginBuild
+- HeaderComponent
 - Delivery contract
 - grid.mjs
 - enum
@@ -152,8 +152,8 @@
 - story-moment-link.test.mjs
 - story-shelf.test.mjs
 - ConnexisDashboard
-- alert.model.ts
-- latest-alerts.component.ts
+- .opencode/opencode.json
+- right-metrics.component.ts
 - architect
 - options
 - Sequence Renderer
@@ -180,7 +180,6 @@
 - settled-flow.test.mjs
 - story-beat-navigator.test.mjs
 - story-horizon.test.mjs
-- performance-panel.component.ts
 - Data Flow Renderer
 - Lifecycle Renderer
 - Workflow Renderer
@@ -226,7 +225,6 @@
 - graphify reference: commit hook and native CLAUDE.md integration
 - graphify reference: incremental update and cluster-only
 - AuthGuard
-- findChrome
 - Brand marks
 - col
 - enum
@@ -295,11 +293,11 @@
 ## Hyperedges (group relationships)
 - **Dashboard Feature Composition** — app_features_dashboards_dashboard_component, app_features_dashboards_components_stats_row_stats_row_component, app_features_dashboards_components_generator_status_generator_status_component, app_features_dashboards_components_fuel_breakdown_fuel_breakdown_component, app_features_dashboards_components_right_metrics_right_metrics_component [EXTRACTED 0.90]
 
-## Communities (250 total, 33 thin omitted)
+## Communities (248 total, 33 thin omitted)
 
-### Community 4 - "app.component.ts"
-Cohesion: 0.15
-Nodes (8): AppComponent, Component, appConfig, routes, httpErrorInterceptor(), SidebarComponent, Component, Index HTML
+### Community 4 - "metric.model.ts"
+Cohesion: 0.23
+Nodes (10): DonutPercent, DonutSegment, GeneratorStatus, IconName, StatIcon, PerformanceChart, RunningMetric, Weather (+2 more)
 
 ### Community 8 - "QrCodeComponent"
 Cohesion: 0.29
@@ -315,11 +313,11 @@ Nodes (45): DESKTOP_READABILITY_VIEWPORT, DESKTOP_READER_DIAGRAM_WIDTH, DESKTOP_
 
 ### Community 13 - "render-architecture.mjs"
 Cohesion: 0.07
-Nodes (53): alignFacingPorts(), architectureLegendEntries, automaticPorts, autoViewBoxFor(), boundaryLabelWidth(), boundaryRect(), buildLayoutReport(), cliArgs (+45 more)
+Nodes (54): alignFacingPorts(), architectureLegendEntries, automaticPorts, autoViewBoxFor(), boundaryLabelWidth(), boundaryRect(), buildLayoutReport(), cliArgs (+46 more)
 
 ### Community 14 - "geometry.mjs"
 Cohesion: 0.14
-Nodes (54): validateArchitecture(), validateDataflow(), validateLifecycle(), validateSequence(), brandTopRailProblem(), recordDiagnostic(), asArray(), automaticPortRhythmBridge() (+46 more)
+Nodes (54): validateArchitecture(), validateDataflow(), validateLifecycle(), validateSequence(), brandTopRailProblem(), recordDiagnostic(), throwDiagnosticProblems(), asArray() (+46 more)
 
 ### Community 15 - "diagnostics.mjs"
 Cohesion: 0.06
@@ -346,12 +344,12 @@ Cohesion: 0.14
 Nodes (42): assertEvidenceType(), CHECK_FIXES, checkerDiagnostics(), [command, ...args], commandBrands(), commandCheck(), commandCompare(), commandDeliver() (+34 more)
 
 ### Community 21 - "render-sequence.mjs"
-Cohesion: 0.12
-Nodes (43): renderBoundaryFrame(), renderBoundaryLabel(), renderComponent(), renderSvg(), renderNode(), renderState(), arrowClass, compositionFrames (+35 more)
+Cohesion: 0.13
+Nodes (39): componentContext(), renderComponent(), renderNode(), renderState(), arrowClass, compositionFrames, __dirname, layout (+31 more)
 
 ### Community 22 - "brand-marks.mjs"
 Cohesion: 0.08
-Nodes (35): asUrl(), attribute(), beforeDeadline(), captureBrandReference(), captureRemoteBrand(), captureTimeoutMilliseconds(), checkedFetch(), COLLECTIONS (+27 more)
+Nodes (36): asUrl(), attribute(), beforeDeadline(), captureBrandReference(), captureRemoteBrand(), captureTimeoutMilliseconds(), checkedFetch(), COLLECTIONS (+28 more)
 
 ### Community 23 - "webm-artifact.smoke.mjs"
 Cohesion: 0.09
@@ -359,7 +357,7 @@ Nodes (39): captureCopiedShareCard(), captureReachShareCard(), captureRouteShare
 
 ### Community 24 - "dashboard.mock.ts"
 Cohesion: 0.11
-Nodes (36): Bank, DonutPercent, DonutSegment, FuelFlow, TankMetric, GeneratorStatus, GenStat, IconName (+28 more)
+Nodes (30): AlertBadge, AlertItem, AlertSeverity, AlertVariant, Bank, FuelFlow, TankMetric, GenStat (+22 more)
 
 ### Community 25 - "properties"
 Cohesion: 0.05
@@ -374,12 +372,12 @@ Cohesion: 0.05
 Nodes (39): $ref, type, type, $ref, $ref, properties, minLength, type (+31 more)
 
 ### Community 28 - "render-lifecycle.mjs"
-Cohesion: 0.10
-Nodes (35): connectionEndpointSide(), connectionSides(), automaticPorts, flowSides(), automaticPorts, bandFor(), bandTitles(), __dirname (+27 more)
+Cohesion: 0.12
+Nodes (25): renderFlowPath(), bandFor(), bandTitles(), __dirname, laneLabels, layout, LEGEND_CATALOG, legendY() (+17 more)
 
 ### Community 29 - "render-workflow.mjs"
 Cohesion: 0.11
-Nodes (33): renderConnectionLabel(), svgAccessibleText(), variantAccent(), automaticOneBendSides(), __dirname, edgeSteps, gapYBetween(), laneIndex (+25 more)
+Nodes (33): variantAccent(), automaticOneBendSides(), __dirname, edgeSteps, gapYBetween(), laneIndex, laneLabels, laneTop() (+25 more)
 
 ### Community 30 - "properties"
 Cohesion: 0.06
@@ -391,11 +389,11 @@ Nodes (31): $ref, $ref, $ref, properties, $ref, type, type, $ref (+23 more)
 
 ### Community 32 - "cli.mjs"
 Cohesion: 0.12
-Nodes (27): componentContext(), loadDiagram(), loadDiagramWithBrandMarks(), outputPathGuards, RELATIONSHIP_COLLECTIONS, SEMANTIC_COLLECTIONS, START_TYPES, validateGuidedViews() (+19 more)
+Nodes (30): renderSvg(), renderSvg(), loadDiagram(), loadDiagramWithBrandMarks(), outputPathGuards, RELATIONSHIP_COLLECTIONS, SEMANTIC_COLLECTIONS, START_TYPES (+22 more)
 
 ### Community 33 - "render-dataflow.mjs"
-Cohesion: 0.13
-Nodes (26): renderConnectionPath(), compositionFrames, __dirname, flowLabelSize(), layout, LEGEND_CATALOG, measureNode(), nodes (+18 more)
+Cohesion: 0.11
+Nodes (29): connectionEndpointSide(), connectionSides(), automaticPorts, compositionFrames, __dirname, flowLabelSize(), flowSides(), layout (+21 more)
 
 ### Community 34 - "layout-rules.test.mjs"
 Cohesion: 0.09
@@ -409,21 +407,21 @@ Nodes (24): For /graphify add and --watch, For /graphify query, For the commit h
 Cohesion: 0.12
 Nodes (23): items, type, items, type, additionalProperties, required, type, col (+15 more)
 
-### Community 37 - "right-metrics.component.ts"
-Cohesion: 0.13
-Nodes (16): DashboardService, Injectable, AlertBadgesComponent, Component, FuelBreakdownComponent, Component, RightMetricsComponent, Component (+8 more)
+### Community 37 - "fuel-breakdown.component.ts"
+Cohesion: 0.10
+Nodes (20): FuelBreakdownComponent, Component, GeneratorStatusComponent, Component, PerformancePanelComponent, Component, RightMetricsComponent, Component (+12 more)
 
 ### Community 38 - "app.routes.ts"
-Cohesion: 0.13
-Nodes (14): AlarmsComponent, Component, HelpComponent, Component, MonitoringComponent, Component, OutageComponent, Component (+6 more)
+Cohesion: 0.11
+Nodes (17): appConfig, routes, httpErrorInterceptor(), AlarmsComponent, Component, HelpComponent, Component, MonitoringComponent (+9 more)
 
 ### Community 39 - "scenarios.mjs"
 Cohesion: 0.16
 Nodes (15): detectGuideLanguage(), formatScenarioList(), listScenarioRecipes(), localized(), normalized(), publicGuideData(), RAW_RECIPES, recommendScenario() (+7 more)
 
 ### Community 40 - "sidebar.component.ts"
-Cohesion: 0.12
-Nodes (10): ThemeService, Injectable, BANKS, SIDEBAR, STORE_BADGES, HeaderComponent, Component, ICON_REGISTRY (+2 more)
+Cohesion: 0.11
+Nodes (12): AppComponent, Component, ThemeService, Injectable, SIDEBAR, STORE_BADGES, SidebarComponent, Component (+4 more)
 
 ### Community 41 - "required"
 Cohesion: 0.13
@@ -434,8 +432,8 @@ Cohesion: 0.10
 Nodes (19): additionalProperties, $defs, side, $id, bottom, diagram_type, lanes, left (+11 more)
 
 ### Community 43 - "visual-check.mjs"
-Cohesion: 0.21
-Nodes (18): baseReceipt(), CAPTURE_VIEWPORTS, CHROME_NO_SANDBOX_ENV, cleanupCaptureSidecars(), contactSheetHtml(), EXIT, failureDiagnostic(), htmlEscape() (+10 more)
+Cohesion: 0.18
+Nodes (21): baseReceipt(), CAPTURE_VIEWPORTS, CHROME_NO_SANDBOX_ENV, cleanupCaptureSidecars(), contactSheetHtml(), executable(), EXIT, failureDiagnostic() (+13 more)
 
 ### Community 44 - "Authoring contract"
 Cohesion: 0.11
@@ -482,8 +480,8 @@ Cohesion: 0.14
 Nodes (8): ChromeVisualBrowser, chromeVisualBrowserArgs(), sidecarPaths(), VISUAL_CHECK_VIEWPORTS, __dirname, png, skillRoot, tmp
 
 ### Community 55 - "i18n.test.mjs"
-Cohesion: 0.14
-Nodes (14): catalogKeys(), SUPPORTED_LOCALES, translateCount(), AUTHORED_TEXT_KEYS, authoredExample(), cli, __dirname, evaluate() (+6 more)
+Cohesion: 0.15
+Nodes (13): catalogKeys(), SUPPORTED_LOCALES, AUTHORED_TEXT_KEYS, authoredExample(), cli, __dirname, evaluate(), example() (+5 more)
 
 ### Community 56 - "required"
 Cohesion: 0.16
@@ -506,8 +504,8 @@ Cohesion: 0.13
 Nodes (14): 1. Access Global Skills, 2. Build Better Agents, 3. Optimize System Prompts, CL4R1T4S Prompts - Project Skill, Example: Creating an Agent, From ChatGPT, From Claude, From Cursor (+6 more)
 
 ### Community 61 - "generator-status.component.ts"
-Cohesion: 0.16
-Nodes (6): GeneratorStatusComponent, Component, ON_PILL_LABEL, STATUS_PANEL_TITLE, SelectComponent, Component
+Cohesion: 0.19
+Nodes (4): ON_PILL_LABEL, STATUS_PANEL_TITLE, SelectComponent, Component
 
 ### Community 62 - "properties"
 Cohesion: 0.14
@@ -589,13 +587,13 @@ Nodes (8): ARRAY_FIELDS, assertFriendlyFailure(), __dirname, EXAMPLES, installed
 Cohesion: 0.20
 Nodes (7): assetPath, __dirname, inspectGif(), receiptPath, repoRoot, skillRoot, skipSubBlocks()
 
-### Community 82 - "preview.mjs"
-Cohesion: 0.22
-Nodes (9): cliPath, compactMessage(), diagramTypes, here, initialAuthoredOutput(), parseReceipt(), previewPage(), redactDiagnostic() (+1 more)
+### Community 82 - "startPreview"
+Cohesion: 0.16
+Nodes (27): cliPath, compactMessage(), diagramTypes, here, initialAuthoredOutput(), parseReceipt(), previewPage(), redactDiagnostic() (+19 more)
 
-### Community 83 - "startPreview"
-Cohesion: 0.42
-Nodes (10): runPreview(), safeJson(), startPreview(), closeServer(), finishStop(), publicState(), sendState(), signalActiveChild() (+2 more)
+### Community 83 - "legend.mjs"
+Cohesion: 0.43
+Nodes (7): renderLegend(), renderLegend(), legendFootprint(), measuredEntryWidth(), measureLegend(), renderLegend(), resolveLegend()
 
 ### Community 84 - "Viewer Runtime reference"
 Cohesion: 0.20
@@ -685,9 +683,9 @@ Nodes (8): build, builder, configurations, defaultConfiguration, production, bud
 Cohesion: 0.39
 Nodes (5): launchTarget(), openArtifact(), OPENERS, openLoopbackUrl(), target
 
-### Community 107 - "beginBuild"
-Cohesion: 0.54
-Nodes (8): sha256(), sourceDigest(), beginBuild(), broadcast(), commitCandidate(), observeSource(), publishFailure(), queueStableBuild()
+### Community 107 - "HeaderComponent"
+Cohesion: 0.29
+Nodes (3): BANKS, HeaderComponent, Component
 
 ### Community 108 - "Delivery contract"
 Cohesion: 0.25
@@ -805,13 +803,13 @@ Nodes (5): CASES, __dirname, skillRoot, template, tmp
 Cohesion: 0.25
 Nodes (7): Additional Resources, Building, Code scaffolding, ConnexisDashboard, Development server, Running end-to-end tests, Running unit tests
 
-### Community 137 - "alert.model.ts"
-Cohesion: 0.29
-Nodes (6): AlertBadge, AlertItem, AlertSeverity, AlertVariant, BadgeComponent, Component
+### Community 137 - ".opencode/opencode.json"
+Cohesion: 0.50
+Nodes (3): plugin, $schema, .opencode/plugins/graphify.js
 
-### Community 138 - "latest-alerts.component.ts"
-Cohesion: 0.29
-Nodes (5): AlertsService, Injectable, LatestAlertsComponent, Component, ALERTS_TITLE
+### Community 138 - "right-metrics.component.ts"
+Cohesion: 0.16
+Nodes (11): AlertsService, Injectable, DashboardService, Injectable, AlertBadgesComponent, Component, LatestAlertsComponent, Component (+3 more)
 
 ### Community 139 - "architect"
 Cohesion: 0.29
@@ -916,10 +914,6 @@ Nodes (5): CASES, __dirname, skillRoot, template, tmp
 ### Community 164 - "story-horizon.test.mjs"
 Cohesion: 0.29
 Nodes (5): CASES, __dirname, skillRoot, template, tmp
-
-### Community 165 - "performance-panel.component.ts"
-Cohesion: 0.29
-Nodes (6): PerformancePanelComponent, Component, PERF_DOTS, PERF_TITLE, DonutChartComponent, Component
 
 ### Community 166 - "Data Flow Renderer"
 Cohesion: 0.33
@@ -1081,10 +1075,6 @@ Nodes (3): For git commit hook, For native CLAUDE.md integration, graphify refer
 Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
-### Community 211 - "findChrome"
-Cohesion: 1.00
-Nodes (3): executable(), findChrome(), findOnPath()
-
 ### Community 213 - "col"
 Cohesion: 0.67
 Nodes (3): minimum, type, col
@@ -1162,7 +1152,7 @@ Cohesion: 0.67
 Nodes (3): width, minimum, type
 
 ## Knowledge Gaps
-- **1290 isolated node(s):** `__dirname`, `skillRoot`, `TYPES`, `COMPOSITION_CHECKS`, `CHECK_FIXES` (+1285 more)
+- **1292 isolated node(s):** `$schema`, `.opencode/plugins/graphify.js`, `__dirname`, `skillRoot`, `TYPES` (+1287 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **33 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1173,13 +1163,13 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **Why does `properties` connect `properties` to `properties`, `workflow.schema.json`, `mainPath`, `required`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
-- **Why does `properties` connect `properties` to `required`, `architecture.schema.json`, `meta`, `layout`?**
-  _High betweenness centrality (0.003) - this node is a cross-community bridge._
-- **What connects `__dirname`, `skillRoot`, `TYPES` to the rest of the system?**
-  _1290 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `app.component.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.14705882352941177 - nodes in this community are weakly interconnected._
+- **Why does `properties` connect `properties` to `properties`, `required`, `lifecycle.schema.json`?**
+  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+- **What connects `$schema`, `.opencode/plugins/graphify.js`, `__dirname` to the rest of the system?**
+  _1292 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `architecture-delta.mjs` be split into smaller, more focused modules?**
   _Cohesion score 0.0627027027027027 - nodes in this community are weakly interconnected._
 - **Should `check-render-output.mjs` be split into smaller, more focused modules?**
   _Cohesion score 0.0647307924984876 - nodes in this community are weakly interconnected._
+- **Should `render-architecture.mjs` be split into smaller, more focused modules?**
+  _Cohesion score 0.06818181818181818 - nodes in this community are weakly interconnected._
