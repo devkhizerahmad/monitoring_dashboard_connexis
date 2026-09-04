@@ -95,6 +95,18 @@ export const BANKS: Bank[] = [
     accent: '#c62828',
     initials: 'BA',
   },
+  {
+    name: 'Bank Al Habib',
+    tagline: 'Your Trusted Financial Partner',
+    accent: '#388e3c',
+    initials: 'BAH',
+  },
+  {
+    name: 'Faysal Bank',
+    tagline: 'Faysal Bank',
+    accent: '#5d4037',
+    initials: 'FB',
+  }
 ];
 
 /** Default selected bank (kept for any consumer that wants the single value). */
@@ -192,19 +204,19 @@ export const GEN_STATS: GenStat[] = [
 export const TANK_METRICS: TankMetric[] = [
   {
     title: 'TANK OPENING',
-    sub: 'Updated 5 min ago',
+    sub: 'Updated 15 min ago',
     value: '69Ltr',
     imageUrl: IMAGES.TANK_OPENING,
   },
   {
     title: 'TANK CLOSING',
-    sub: 'Updated 5 min ago',
+    sub: 'Updated 15 min ago',
     value: '91Ltr',
     imageUrl: IMAGES.TANK_CLOSING,
   },
   {
     title: 'Tank Size',
-    value: '176 Ltr',
+    value: '200 Ltr',
     tank: true,
     valueMarginTop: '8px',
     imageUrl: IMAGES.TANK_SIZE,
